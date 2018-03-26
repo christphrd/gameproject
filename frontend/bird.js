@@ -16,9 +16,9 @@ class Bird {
     this.x+=this.birdSpeed
   }
 
-  renderPoop() {
-    let poop = new Poop(this.x, this.y)
-    return poop
-    // poop.poopDrop()
+  renderEgg() {
+    let egg = new Egg(this.x, this.y)
+    return egg
+    // egg.eggDrop()
   }
 }

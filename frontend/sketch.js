@@ -5,9 +5,12 @@ function setup() {
   bird1 = new Bird();
   bird2 = new Bird();
   bird3 = new Bird();
-  poop1 = bird1.renderPoop()
-  poop2 = bird2.renderPoop()
-  poop3 = bird3.renderPoop()
+
+  //try setInterval to make create more instances
+  // setInterval(dropAll, 3000)
+  egg1 = bird1.renderEgg()
+  egg2 = bird2.renderEgg()
+  egg3 = bird3.renderEgg()
 }
 
 let dudePosition = 100;
@@ -20,9 +23,9 @@ function draw(){
   bird1.renderBird();
   bird2.renderBird();
   bird3.renderBird();
-  poop1.poopDrop();
-  poop2.poopDrop();
-  poop3.poopDrop();
+  egg1.eggDrop();
+  egg2.eggDrop();
+  egg3.eggDrop();
 
 }
 
@@ -43,14 +46,14 @@ function dude(){
 //   }
 //
 //   birdPosition+=5
-//   poop(birdPosition)
+//   egg(birdPosition)
 // }
 //
-// function poop(birdPosition){
+// function egg(birdPosition){
 //   fill(240,242,240);
-//   const poopX = birdPosition
-//   console.log(String(poopX))
-//   ellipse(55, poopPosition, 10, 10);
-//   poopPosition++;
+//   const eggX = birdPosition
+//   console.log(String(eggX))
+//   ellipse(55, eggPosition, 10, 10);
+//   eggPosition++;
 //
 // }
