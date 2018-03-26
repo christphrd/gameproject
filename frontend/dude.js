@@ -3,3 +3,4 @@ class Dude {
     this.xPosition = xPosition
     this.yPosition = yPosition
   }
+}

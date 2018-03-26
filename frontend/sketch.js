@@ -1,32 +1,79 @@
+let allEggs = []
+let dudePosition = 100;
+let allBirds = []
+
 function setup() {
   createCanvas(windowWidth-10, windowHeight-20);
-  smooth();
 
-  bird1 = new Bird();
-  bird2 = new Bird();
-  bird3 = new Bird();
+  for(i = 0; i < 4; i++){
+    let bird = new Bird()
+    console.log(bird)
+    allBirds.push(bird)
+  }
+  // bird1 = new Bird();
+  // bird2 = new Bird();
+  // bird3 = new Bird();
+  // bird4 = new Bird();
+
+  // let allBirds = [bird1, bird2, bird3, bird4]
+
+  // allBirds.forEach(bird => {
+  //   let eggy = new Egg(500, 400)
+  //   allEggs.push(eggy)
+  // })
 
   //try setInterval to make create more instances
   // setInterval(dropAll, 3000)
-  egg1 = bird1.renderEgg()
-  egg2 = bird2.renderEgg()
-  egg3 = bird3.renderEgg()
+  // egg1 = bird1.renderEgg()
+  // egg2 = bird2.renderEgg()
+  // egg3 = bird3.renderEgg()
+
 }
 
-let dudePosition = 100;
+
+// function dropIt() {
+//   console.log("trying to drop an egg");
+// }
 
 
 function draw(){
   // background
   background(175, 225, 255);
   dude();
-  bird1.renderBird();
-  bird2.renderBird();
-  bird3.renderBird();
-  egg1.eggDrop();
-  egg2.eggDrop();
-  egg3.eggDrop();
+  for(let i = 0; i < allBirds.length; i++){
+    allBirds[i].show()
+    allBirds[i].update()
+  }
 
+  for(let i = 0; i < allEggs.length; i++){
+    // console.log(allEggs)
+    if (allEggs.length > 0){
+      allEggs[i].show()
+      allEggs[i].update()
+    }
+    if(allEggs[i].y > height){
+      allEggs.splice(i, 1)
+    }
+  }
+  console.log(allEggs.length)
+
+  if(frameCount % 120 === 0){
+    // console.log('hello')
+    let bird = allBirds[Math.floor(random(0, 4))]
+    // console.log(bird)
+    let egg = new Egg(bird.x, bird.y)
+    allEggs.push(egg)
+  }
+  // allEggs.forEach(egg => {
+  //   setInterval(egg.eggDrop, 2000)
+  // })
+  // if (bird1.x === windowWidth) {
+  //   bird1 = new Bird();
+  //   bird1.renderBird()
+  // }
+  // egg1.eggDrop();
+  // egg2.eggDrop();
+  // egg3.eggDrop();
 }
 
 function dude(){
