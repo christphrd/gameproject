@@ -13,6 +13,8 @@ function setup() {
 
 let dude = new Dude();
 
+let hit = false;
+
 function draw(){
   // background
   background(175, 225, 255);
@@ -31,16 +33,19 @@ function draw(){
       allEggs[i].update()
     }
 
-    // Check if dude is touching any egg
-    if ( abs(allEggs[i].x-dude.x) < 30 && allEggs[i].y > windowHeight-50){
-      console.log('collision')
+    hit = collideCircleCircle(dude.x, windowHeight-50, 50, allEggs[i].x, allEggs[i].y, 10)
+    print("colliding? " + hit);
+    if(hit === true){
+      allEggs.splice(i, 1)
       dude.score++
       console.log(dude.score)
-      allEggs.splice(i, 1)
-    } else if(allEggs[i].y > height){
-      allEggs.splice(i, 1)
-    }
 
+    } else {
+    //Remove eggs so that it doesn't slow down
+      if(allEggs[i].y > height){
+        allEggs.splice(i, 1)
+      }
+    }
   }
 
   //modulo to have eggs drop at an interval in draw function
