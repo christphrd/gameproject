@@ -2,13 +2,18 @@ let dudePosition = 100;
 let allBirds = []
 let allEggs = []
 
-
+window.addEventListener("keydown", function(e) {
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 function setup() {
   console.log(width)
   console.log(height)
   let canvas = createCanvas(700,500);
   canvas.parent('game-window')
+  let showScore = document.getElementById('showScore')
 
   for(i = 0; i < 4; i++){
     let bird = new Bird()
@@ -43,7 +48,7 @@ function draw(){
     if(hit === true){
       allEggs.splice(i, 1)
       dude.score++
-      console.log(dude.score)
+      showScore.innerText += (0+parseInt(dude.score))
 
     } else {
     //Remove eggs so that it doesn't slow down
