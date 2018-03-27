@@ -1,5 +1,5 @@
 class Dude {
-  constructor(x=350, y=0, score = 0, color = 0, hp = 1){
+  constructor(x=350, y=0, score = 0, color = 0, hp = 10){
     this.x = x
     this.y = y
     this.score = score
