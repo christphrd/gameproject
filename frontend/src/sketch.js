@@ -38,7 +38,7 @@ function draw(){
       allEggs[i].update()
     }
 
-    hit = collideCircleCircle(dude.x, height-26, 48, allEggs[i].x, allEggs[i].y, 10)
+    let hit = collideCircleCircle(dude.x, height-26, 48, allEggs[i].x, allEggs[i].y, 10)
     if(hit === true){
 
       if(dude.color === allEggs[i].color){

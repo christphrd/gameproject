@@ -22,4 +22,8 @@ class Egg {
   update(){
     this.y+=this.eggSpeed
   }
+
+  checkCollision(){
+    
+  }
 }
