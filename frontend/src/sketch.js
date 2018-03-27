@@ -12,9 +12,10 @@ window.addEventListener("keydown", function(e) {
 function setup() {
   let canvas = createCanvas(700,500);
   canvas.parent('game-window')
-
-  resetSketch()
-
+  for(i = 0; i < 4; i++){
+    let bird = new Bird()
+    allBirds.push(bird)
+  }
 }
 
 function draw(){
@@ -45,19 +46,6 @@ function draw(){
   }
 }
 
-
-
-function resetSketch(){
-  let newGame = document.getElementById('new-game')
-  newGame.addEventListener('click', resetSketch)
-
-  for(i = 0; i < 4; i++){
-    let bird = new Bird()
-    allBirds.push(bird)
-  }
-  let dude = new Dude();
-
-}
 
 
 function checkGameStatus(){
