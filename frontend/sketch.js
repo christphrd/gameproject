@@ -31,6 +31,9 @@ function draw(){
       allEggs[i].update()
     }
     //Remove eggs so that it doesn't slow down
+    if ( abs(allEggs[i].x-dude.x) < 30 && allEggs[i].y > windowHeight-50){
+      console.log('collision')
+    }
 
 
     if(allEggs[i].y > height){
