@@ -1,9 +1,7 @@
 
-let allBirds = []
-let allEggs = []
+let allBirds = [];
+let allEggs = [];
 let dude = new Dude();
-let hit = false;
-
 
 window.addEventListener("keydown", function(e) {
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
@@ -15,14 +13,11 @@ function setup() {
   let canvas = createCanvas(700,500);
   canvas.parent('game-window')
 
-  for(i = 0; i < 4; i++){
-    let bird = new Bird()
-    allBirds.push(bird)
-  }
+  resetSketch()
+
 }
 
 function draw(){
-  // background
   background(175, 225, 255);
   dude.show();
   dude.update();
@@ -33,33 +28,12 @@ function draw(){
   }
 
   for(let i = 0; i < allEggs.length; i++){
-    if (allEggs.length > 0){
-      allEggs[i].show()
-      allEggs[i].update()
-    }
-
-    let hit = collideCircleCircle(dude.x, height-26, 48, allEggs[i].x, allEggs[i].y, 10)
-    if(hit === true){
-
-      if(dude.color === allEggs[i].color){
-        let showScore = document.getElementById('show-score')
-        dude.score++
-        showScore.innerText = "Current Score: " + dude.score
-      }else{
-        let showHp = document.getElementById('show-hp')
-        dude.hp--
-        showHp.innerText = "Current Hp: " + dude.hp
-      }
-      allEggs.splice(i, 1)
-
-    } else {
-    //Remove eggs so that it doesn't slow down
-      if(allEggs[i].y > height){ allEggs.splice(i, 1) }
-    }
-
-    checkGameStatus();
-
+    allEggs[i].show()
+    allEggs[i].update()
+    if (allEggs[i].checkCollision() || allEggs[i].y > height){ allEggs.splice(i, 1) }
   }
+
+  checkGameStatus();
 
   //modulo to have eggs drop at an interval in draw function
   if(frameCount % 120 === 0){
@@ -70,6 +44,21 @@ function draw(){
     }
   }
 }
+
+
+
+function resetSketch(){
+  let newGame = document.getElementById('new-game')
+  newGame.addEventListener('click', resetSketch)
+
+  for(i = 0; i < 4; i++){
+    let bird = new Bird()
+    allBirds.push(bird)
+  }
+  let dude = new Dude();
+
+}
+
 
 function checkGameStatus(){
   let navbar = document.getElementById('navbar')
@@ -90,8 +79,6 @@ function checkGameStatus(){
       loop()
       // debugger;
     })
-
-
 
   }
 }
