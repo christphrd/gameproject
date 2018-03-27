@@ -1,32 +1,15 @@
-let allEggs = []
 let dudePosition = 100;
 let allBirds = []
+let allEggs = []
 
 function setup() {
   createCanvas(windowWidth-10, windowHeight-20);
 
   for(i = 0; i < 4; i++){
     let bird = new Bird()
-    console.log(bird)
     allBirds.push(bird)
   }
-  // bird1 = new Bird();
-  // bird2 = new Bird();
-  // bird3 = new Bird();
-  // bird4 = new Bird();
 
-  // let allBirds = [bird1, bird2, bird3, bird4]
-
-  // allBirds.forEach(bird => {
-  //   let eggy = new Egg(500, 400)
-  //   allEggs.push(eggy)
-  // })
-
-  //try setInterval to make create more instances
-  // setInterval(dropAll, 3000)
-  // egg1 = bird1.renderEgg()
-  // egg2 = bird2.renderEgg()
-  // egg3 = bird3.renderEgg()
 
 }
 
@@ -46,21 +29,19 @@ function draw(){
   }
 
   for(let i = 0; i < allEggs.length; i++){
-    // console.log(allEggs)
     if (allEggs.length > 0){
       allEggs[i].show()
       allEggs[i].update()
     }
+    //Remove eggs so that it doesn't slow down
     if(allEggs[i].y > height){
       allEggs.splice(i, 1)
     }
   }
-  console.log(allEggs.length)
 
+  //modulo to have eggs drop at an interval in draw function
   if(frameCount % 120 === 0){
-    // console.log('hello')
     let bird = allBirds[Math.floor(random(0, 4))]
-    // console.log(bird)
     let egg = new Egg(bird.x, bird.y)
     allEggs.push(egg)
   }

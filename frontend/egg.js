@@ -13,21 +13,4 @@ class Egg {
   update(){
     this.y+=this.eggSpeed
   }
-
-  // eggDrop() {
-  //   console.log("eggDrop triggered");
-  //
-  //
-  //   console.log("this is", this);
-  //   console.log("-----");
-  // }
-
-  // renderEgg() {
-  //   console.log("render egg triggered");
-  //   console.log("------");
-  //   let egg = new Egg(this.x, this.y)
-  //   return egg
-  // }
-
-  // setInterval(eggDrop, 2000)
 }

@@ -19,13 +19,4 @@ class Bird {
     this.x+=this.birdSpeed
   }
 
-
-
-  // renderEgg() {
-  //   console.log("render egg triggered");
-  //   console.log("------");
-  //   let egg = new Egg(this.x, this.y)
-  //   return egg
-  // }
-
 }
