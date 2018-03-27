@@ -48,7 +48,8 @@ function draw(){
     if(hit === true){
       allEggs.splice(i, 1)
       dude.score++
-      showScore.innerText += (0+parseInt(dude.score))
+
+      showScore.innerText = "Current Score: " + dude.score
 
     } else {
     //Remove eggs so that it doesn't slow down
