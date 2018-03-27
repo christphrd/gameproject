@@ -2,8 +2,13 @@ let dudePosition = 100;
 let allBirds = []
 let allEggs = []
 
+
+
 function setup() {
-  createCanvas(windowWidth-10, windowHeight-20);
+  console.log(width)
+  console.log(height)
+  let canvas = createCanvas(700,500);
+  canvas.parent('game-window')
 
   for(i = 0; i < 4; i++){
     let bird = new Bird()
@@ -33,7 +38,7 @@ function draw(){
       allEggs[i].update()
     }
 
-    hit = collideCircleCircle(dude.x, windowHeight-50, 50, allEggs[i].x, allEggs[i].y, 10)
+    hit = collideCircleCircle(dude.x, height-26, 48, allEggs[i].x, allEggs[i].y, 10)
     print("colliding? " + hit);
     if(hit === true){
       allEggs.splice(i, 1)
@@ -55,11 +60,3 @@ function draw(){
     allEggs.push(egg)
   }
 }
-
-// function dude(){
-//   if (keyIsDown(LEFT_ARROW) && dudePosition>=40) { dudePosition -= 10 }
-//   if (keyIsDown(RIGHT_ARROW) && dudePosition<=windowWidth-45) { dudePosition += 10 }
-//   fill(255,255,100);
-//   if (keyIsDown(32)){ fill(255,0,0)}
-//   ellipse(dudePosition, windowHeight-50, 50, 50);
-// }

@@ -1,8 +1,8 @@
 
 class Bird {
   constructor(){
-    this.x = random(windowWidth)
-    this.y = random(20, 200)
+    this.x = random(width)
+    this.y = random(10, 100)
     this.birdSpeed = random(2,8)
   }
 
@@ -10,7 +10,7 @@ class Bird {
     fill(0,255,255);
     ellipse(this.x, this.y, 50, 50);
 
-    if(this.x>windowWidth){
+    if(this.x>width){
       this.x = 0
     }
   }

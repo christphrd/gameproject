@@ -1,0 +1,21 @@
+body{
+  width: 99vw;
+  overflow: hidden;
+
+}
+
+#navbar{
+  margin: auto;
+  background-color: red;
+  height: 50px;
+  width: 80%;
+}
+#navbar li{
+  list-style: none;
+  text-decoration: none;
+}
+#game-window{
+  width: 700px;
+    margin: auto;
+
+}
