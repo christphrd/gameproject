@@ -1,11 +1,11 @@
 class Dude {
-  constructor(x=100, y=0){
+  constructor(x=100, y=0, score = 0){
     this.x = x
     this.y = y
+    this.score = score
   }
 
   show(){
-
     fill(255,255,100);
     ellipse(this.x, windowHeight-50, 50, 50);
     if (keyIsDown(32)){fill(255,0,0)}
@@ -15,4 +15,5 @@ class Dude {
     if (keyIsDown(LEFT_ARROW) && this.x>=40) { this.x -= 10 }
     if (keyIsDown(RIGHT_ARROW) && this.x<=windowWidth-45) { this.x += 10 }
   }
+
 }

@@ -30,16 +30,16 @@ function draw(){
       allEggs[i].show()
       allEggs[i].update()
     }
-    //Remove eggs so that it doesn't slow down
+
+    // Check if dude is touching any egg
     if ( abs(allEggs[i].x-dude.x) < 30 && allEggs[i].y > windowHeight-50){
       console.log('collision')
-    }
-
-
-    if(allEggs[i].y > height){
+      dude.score++
+      console.log(dude.score)
+      allEggs.splice(i, 1)
+    } else if(allEggs[i].y > height){
       allEggs.splice(i, 1)
     }
-
 
   }
 
