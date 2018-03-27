@@ -1,7 +1,7 @@
 
 let allBirds = [];
 let allEggs = [];
-let dude = new Dude();
+let dude = null;
 
 window.addEventListener("keydown", function(e) {
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
@@ -9,10 +9,19 @@ window.addEventListener("keydown", function(e) {
     }
 }, false);
 
+function start() {
+  window.addEventListener('keydown', createDude())
+}
+
+function createDude() {
+  dude = new Dude();
+
+}
+
 function setup() {
   let canvas = createCanvas(700,500);
   canvas.parent('game-window')
-  for(i = 0; i < 4; i++){
+  for(i = 0; i < 20; i++){
     let bird = new Bird()
     allBirds.push(bird)
   }
@@ -20,8 +29,10 @@ function setup() {
 
 function draw(){
   background(175, 225, 255);
-  dude.show();
-  dude.update();
+  if(dude) {
+    dude.show();
+    dude.update();
+  }
 
   for(let i = 0; i < allBirds.length; i++){
     allBirds[i].show()
@@ -37,7 +48,7 @@ function draw(){
   checkGameStatus();
 
   //modulo to have eggs drop at an interval in draw function
-  if(frameCount % 120 === 0){
+  if(frameCount % 10 === 0){
     let bird = allBirds[Math.floor(random(0, 4))]
     if (bird.x > 10 && bird.x < 690){
       let egg = new Egg(bird.x, bird.y)
@@ -50,7 +61,7 @@ function draw(){
 
 function checkGameStatus(){
   let navbar = document.getElementById('navbar')
-  if(dude.hp === 0){
+  if(dude && dude.hp === 0){
     noLoop();
     navbar.innerHTML = '<p>Play Again?</p>'
     navbar.children[0].id = "game-over-text"

@@ -3,7 +3,7 @@ class Egg {
     this.x = x
     this.y = y
     this.eggSpeed = random(1,10)
-    this.color = floor(random(3))
+    this.color = floor(random(4))
   }
 
   show(){
@@ -16,7 +16,7 @@ class Egg {
     }else if(this.color === 3){
       fill(0,0,255)
     }
-    ellipse(this.x, this.y, 10, 10);
+    ellipse(this.x, this.y, 25, 25);
   }
 
   update(){
@@ -24,18 +24,20 @@ class Egg {
   }
 
   checkCollision(){
-    let hit = collideCircleCircle(dude.x, height-26, 48, this.x, this.y, 10)
-    if(hit === true){
-      if(dude.color === this.color){
-        let showScore = document.getElementById('show-score')
-        dude.score++
-        showScore.innerText = "Current Score: " + dude.score
-      }else{
-        let showHp = document.getElementById('show-hp')
-        dude.hp--
-        showHp.innerText = "Current Hp: " + dude.hp
+    if(dude){
+      let hit = collideCircleCircle(dude.x, height-26, 48, this.x, this.y, 25)
+      if(hit === true){
+        if(dude.color === this.color){
+          let showScore = document.getElementById('show-score')
+          dude.score++
+          showScore.innerText = "Current Score: " + dude.score
+        }else{
+          let showHp = document.getElementById('show-hp')
+          dude.hp--
+          showHp.innerText = "Current Hp: " + dude.hp
+        }
+        return hit
       }
-      return hit
     }
   }
 }
