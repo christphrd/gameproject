@@ -2,7 +2,7 @@ class Egg {
   constructor(x, y){
     this.x = x
     this.y = y
-    this.eggSpeed = random(1,4)
+    this.eggSpeed = random(1,10)
   }
 
   show(){

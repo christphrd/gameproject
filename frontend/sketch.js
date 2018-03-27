@@ -9,14 +9,7 @@ function setup() {
     let bird = new Bird()
     allBirds.push(bird)
   }
-
-
 }
-
-
-// function dropIt() {
-//   console.log("trying to drop an egg");
-// }
 
 
 function draw(){
@@ -45,16 +38,6 @@ function draw(){
     let egg = new Egg(bird.x, bird.y)
     allEggs.push(egg)
   }
-  // allEggs.forEach(egg => {
-  //   setInterval(egg.eggDrop, 2000)
-  // })
-  // if (bird1.x === windowWidth) {
-  //   bird1 = new Bird();
-  //   bird1.renderBird()
-  // }
-  // egg1.eggDrop();
-  // egg2.eggDrop();
-  // egg3.eggDrop();
 }
 
 function dude(){
@@ -64,24 +47,3 @@ function dude(){
   if (keyIsDown(32)){ fill(255,0,0)}
   ellipse(dudePosition, windowHeight-50, 50, 50);
 }
-
-// function bird(){
-//   fill(0,255,255);
-//   ellipse(birdPosition, 50, 50, 50);
-//
-//   if(birdPosition>windowWidth){
-//     birdPosition = 0
-//   }
-//
-//   birdPosition+=5
-//   egg(birdPosition)
-// }
-//
-// function egg(birdPosition){
-//   fill(240,242,240);
-//   const eggX = birdPosition
-//   console.log(String(eggX))
-//   ellipse(55, eggPosition, 10, 10);
-//   eggPosition++;
-//
-// }
