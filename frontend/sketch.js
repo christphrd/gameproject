@@ -11,11 +11,15 @@ function setup() {
   }
 }
 
+let dude = new Dude();
 
 function draw(){
   // background
   background(175, 225, 255);
-  dude();
+
+  dude.show();
+  dude.update();
+
   for(let i = 0; i < allBirds.length; i++){
     allBirds[i].show()
     allBirds[i].update()
@@ -27,9 +31,13 @@ function draw(){
       allEggs[i].update()
     }
     //Remove eggs so that it doesn't slow down
+
+
     if(allEggs[i].y > height){
       allEggs.splice(i, 1)
     }
+
+
   }
 
   //modulo to have eggs drop at an interval in draw function
@@ -40,10 +48,10 @@ function draw(){
   }
 }
 
-function dude(){
-  if (keyIsDown(LEFT_ARROW) && dudePosition>=40) { dudePosition -= 10 }
-  if (keyIsDown(RIGHT_ARROW) && dudePosition<=windowWidth-45) { dudePosition += 10 }
-  fill(255,255,100);
-  if (keyIsDown(32)){ fill(255,0,0)}
-  ellipse(dudePosition, windowHeight-50, 50, 50);
-}
+// function dude(){
+//   if (keyIsDown(LEFT_ARROW) && dudePosition>=40) { dudePosition -= 10 }
+//   if (keyIsDown(RIGHT_ARROW) && dudePosition<=windowWidth-45) { dudePosition += 10 }
+//   fill(255,255,100);
+//   if (keyIsDown(32)){ fill(255,0,0)}
+//   ellipse(dudePosition, windowHeight-50, 50, 50);
+// }
