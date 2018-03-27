@@ -1,19 +1,19 @@
-let dudePosition = 100;
+
 let allBirds = []
 let allEggs = []
+let dude = new Dude();
+let hit = false;
+
 
 window.addEventListener("keydown", function(e) {
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-        e.preventDefault();
+      e.preventDefault();
     }
 }, false);
 
 function setup() {
-  console.log(width)
-  console.log(height)
   let canvas = createCanvas(700,500);
   canvas.parent('game-window')
-  let showScore = document.getElementById('showScore')
 
   for(i = 0; i < 4; i++){
     let bird = new Bird()
@@ -21,14 +21,9 @@ function setup() {
   }
 }
 
-let dude = new Dude();
-
-let hit = false;
-
 function draw(){
   // background
   background(175, 225, 255);
-
   dude.show();
   dude.update();
 
@@ -44,25 +39,44 @@ function draw(){
     }
 
     hit = collideCircleCircle(dude.x, height-26, 48, allEggs[i].x, allEggs[i].y, 10)
-    print("colliding? " + hit);
     if(hit === true){
-      allEggs.splice(i, 1)
-      dude.score++
 
-      showScore.innerText = "Current Score: " + dude.score
+      if(dude.color === allEggs[i].color){
+        let showScore = document.getElementById('show-score')
+        dude.score++
+        showScore.innerText = "Current Score: " + dude.score
+      }else{
+        let showHp = document.getElementById('show-hp')
+        dude.hp--
+        showHp.innerText = "Current Hp: " + dude.hp
+      }
+      allEggs.splice(i, 1)
 
     } else {
     //Remove eggs so that it doesn't slow down
-      if(allEggs[i].y > height){
-        allEggs.splice(i, 1)
-      }
+      if(allEggs[i].y > height){ allEggs.splice(i, 1) }
     }
+
+    checkGameStatus();
+
   }
 
   //modulo to have eggs drop at an interval in draw function
   if(frameCount % 120 === 0){
     let bird = allBirds[Math.floor(random(0, 4))]
-    let egg = new Egg(bird.x, bird.y)
-    allEggs.push(egg)
+    if (bird.x > 10 && bird.x < 690){
+      let egg = new Egg(bird.x, bird.y)
+      allEggs.push(egg)
+    }
+  }
+}
+
+function checkGameStatus(){
+  let navbar = document.getElementById('navbar')
+  if(dude.hp === 0){
+    navbar.innerText = 'GAME OVER!'
+    noLoop();
+
+
   }
 }

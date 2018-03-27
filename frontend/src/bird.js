@@ -1,9 +1,9 @@
 
 class Bird {
-  constructor(){
+  constructor(birdSpeed = random(2,8)){
     this.x = random(width)
     this.y = random(10, 100)
-    this.birdSpeed = random(2,8)
+    this.birdSpeed = birdSpeed
   }
 
   show(){
