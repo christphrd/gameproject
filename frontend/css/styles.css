@@ -47,3 +47,13 @@ body{ font-family: 'Press Start 2P', cursive; }
   color: red;
   cursor: pointer;
 }
+
+#popup-scores{
+  display: none;
+  position: absolute;
+  height: 475px;
+  width: 700px;
+  background-color: black;
+  text-align: center;
+  color: white;
+}
