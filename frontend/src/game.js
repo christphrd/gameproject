@@ -13,6 +13,8 @@ function resetGame(){
   paused = false;
   togglePopup();
   loop();
+  let highScores = document.getElementById("popup-scores")
+  highScores.style.display = 'none'
 }
 
 function checkGameStatus(){
@@ -36,6 +38,31 @@ function pauseGame(){
   }
 }
 
+//Display high scores and form to submit score
+function toggleDisplayScores(data) {
+  let highScores = document.getElementById("popup-scores")
+  highScores.children[2].addEventListener('click', resetGame)
+  highScores.style.display = 'block'
+  let highScoreList = document.getElementById('high-score-title')
+  highScoreList.innerText = "High Scores"
+  let topTenScoreArr = data.scores.slice(0,10)
+  for(let i=0; i< topTenScoreArr.length; i++){
+    let scoreElement = document.createElement('p')
+    scoreElement.innerText = `${topTenScoreArr[i].user_initial}: ${topTenScoreArr[i].points}`
+    highScoreList.append(scoreElement)
+  }
+}
+
+//clear out high scores and remove display scores window
+
+
+//fetch request for getting scores
+function getScores() {
+  return fetch('http://localhost:3000/levels/1')
+  .then(res => res.json())
+  .then(json => toggleDisplayScores(json))
+}
+
 function unpause(){
   paused = false;
   togglePopup();
@@ -48,6 +75,7 @@ function togglePopup(){
     popup.style.display = 'block'
     popup.children[1].addEventListener('click', unpause)
     popup.children[2].addEventListener('click', resetGame)
+    popup.children[3].addEventListener('click', getScores)
     noLoop();
   }else{
     popup.style.display = ''
