@@ -49,28 +49,13 @@ function resetGame(){
     let bird = new Bird()
     allBirds.push(bird)
   }
+  loop()
 }
 
 
+
 function checkGameStatus(){
-  let navbar = document.getElementById('navbar')
   if(dude.hp === 0){
     noLoop();
-    navbar.innerHTML = '<p>Play Again?</p>'
-    navbar.children[0].id = "game-over-text"
-    let navbarText = document.getElementById('game-over-text')
-
-    navbarText.addEventListener('click', function(event){
-      navbar.innerHTML = `  <div id='navbar'>
-          <p>New Game</p>
-          <p>High Scores</p>
-          <p id="show-score">Current Score: </p>
-          <p id="show-hp">HP: 10</p>
-        </div>`
-      dude.hp = 10
-      loop()
-      // debugger;
-    })
-
   }
 }
