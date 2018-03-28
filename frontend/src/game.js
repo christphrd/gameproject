@@ -4,6 +4,7 @@ function resetGame(){
 
   allBirds = [];
   allEggs = [];
+  allPowerups = [];
   dude = new Dude();
   dude.resetDude();
   for(i = 0; i < 4; i++){
