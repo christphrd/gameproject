@@ -1,12 +1,7 @@
-
-let allBirds = [];
-let allEggs = [];
-let dude = null;
-
 window.addEventListener("keydown", function(e) {
-    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-      e.preventDefault();
-    }
+  if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    e.preventDefault();
+  }
 }, false);
 
 function start() {
@@ -19,12 +14,11 @@ function createDude() {
 }
 
 function setup() {
-  let canvas = createCanvas(700,500);
+  let canvas = createCanvas(700,475);
   canvas.parent('game-window')
-  for(i = 0; i < 20; i++){
-    let bird = new Bird()
-    allBirds.push(bird)
-  }
+  let resetButton = document.getElementById('new-game')
+  resetButton.addEventListener('click', resetGame)
+  resetGame()
 }
 
 function draw(){
@@ -57,27 +51,22 @@ function draw(){
   }
 }
 
+function resetGame(){
+  allBirds = [];
+  allEggs = [];
+  dude = new Dude();
+  dude.resetDude();
+  for(i = 0; i < 4; i++){
+    let bird = new Bird()
+    allBirds.push(bird)
+  }
+  loop()
+}
+
 
 
 function checkGameStatus(){
-  let navbar = document.getElementById('navbar')
-  if(dude && dude.hp === 0){
+  if(dude.hp === 0){
     noLoop();
-    navbar.innerHTML = '<p>Play Again?</p>'
-    navbar.children[0].id = "game-over-text"
-    let navbarText = document.getElementById('game-over-text')
-
-    navbarText.addEventListener('click', function(event){
-      navbar.innerHTML = `  <div id='navbar'>
-          <p>New Game</p>
-          <p>High Scores</p>
-          <p id="show-score">Current Score: </p>
-          <p id="show-hp">HP: 10</p>
-        </div>`
-      dude.hp = 10
-      loop()
-      // debugger;
-    })
-
   }
 }

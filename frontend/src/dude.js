@@ -1,5 +1,5 @@
 class Dude {
-  constructor(x=350, y=0, score = 0, color = 0, hp = 10){
+  constructor(x=350, y=0, score = 0, color = 0, hp = 1){
     this.x = x
     this.y = y
     this.score = score
@@ -32,6 +32,24 @@ class Dude {
     }else if(keyIsDown(70)){
       this.color = 0;
     }
+  }
+
+  updateScore(){
+    let showScore = document.getElementById('show-score')
+    showScore.innerText = "Current Score: " + ++dude.score
+  }
+
+  updateHp(){
+    let showHp = document.getElementById('show-hp')
+    showHp.innerText = "Current Hp: " + --dude.hp
+  }
+
+  resetDude(){
+    let showScore = document.getElementById('show-score')
+    showScore.innerText = "Current Score: 0"
+
+    let showHp = document.getElementById('show-hp')
+    showHp.innerText = "HP: " + dude.hp
   }
 
 
