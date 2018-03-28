@@ -60,7 +60,17 @@ body{ font-family: 'Press Start 2P', cursive; }
   color: white;
 }
 
-#highscores ul{
-  padding-left: 0px;
-  list-style: none;
+#highscores table{
+  margin: auto;
+  text-align: center;
+  width: 350px;
+}
+#highscores th{
+  height: 50px;
+  color: red;
+}
+
+#highscores td{
+  height: 25px;
+  color: white;
 }
