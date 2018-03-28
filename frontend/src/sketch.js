@@ -4,19 +4,9 @@ window.addEventListener("keydown", function(e) {
   }
 }, false);
 
-function start() {
-  window.addEventListener('keydown', createDude())
-}
-
-function createDude() {
-  dude = new Dude();
-}
-
 function setup() {
   let canvas = createCanvas(700,475);
   canvas.parent('game-window')
-  let resetButton = document.getElementById('new-game')
-  resetButton.addEventListener('click', resetGame);
   resetGame();
 }
 
@@ -48,49 +38,4 @@ function draw(){
       allEggs.push(egg)
     }
   }
-}
-
-function checkGameStatus(){
-  if(dude.hp === 0){
-    showPopup();
-    let gameOver = document.getElementById('game-over')
-    gameOver.style.display = 'block'
-    let highScores = document.getElementById('high-scores')
-    highScores.style.display = 'block'
-    noLoop();
-  }
-}
-
-function resetGame(){
-  allBirds = [];
-  allEggs = [];
-  dude = new Dude();
-  dude.resetDude();
-  for(i = 0; i < 4; i++){
-    let bird = new Bird()
-    allBirds.push(bird)
-  }
-  hidePopup();
-  loop();
-}
-
-function pauseGame(){
-  if(keyIsDown(80)) {
-    showPopup();
-    let resume = document.getElementById('resume-game')
-    resume.style.display = 'block';
-    noLoop();
-  }
-}
-
-function showPopup(){
-  let popup = document.getElementById('popup')
-  popup.style.display = 'block';
-  let newGame = document.getElementById('new-game')
-  newGame.style.display = 'block';
-}
-
-function hidePopup(){
-  let popup = document.getElementById('popup')
-  popup.style.display = 'none';
 }
