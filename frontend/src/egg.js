@@ -1,8 +1,10 @@
 class Egg {
-  constructor(x, y){
+  constructor(x, y, speed = random(1,6)){
     this.x = x
     this.y = y
-    this.eggSpeed = random(1,6)
+    this.eggSpeed = speed
+    // this.eggOrigSpeed = speed
+    // this.eggSlowSpeed = speed*0.2
     this.color = floor(random(4))
     this.size = floor(random(25,41))
   }
@@ -20,12 +22,18 @@ class Egg {
     ellipse(this.x, this.y, this.size, this.size);
   }
 
-  update(){ this.y+=this.eggSpeed }
+  update(){
+    if(slowState === false){
+      this.y+=this.eggSpeed
+    }else if(slowState === true){
+      this.y+=(this.eggSpeed*0.2)
+    }
+  }
 
   checkCollision(){
-    let hit = collideCircleCircle(dude.x, height-26, 48, this.x, this.y, this.size)
+    let hit = collideCircleCircle(dude.x, dude.y, dude.size, this.x, this.y, this.size)
     if(hit){
-      dude.color === this.color ? dude.updateScore() : dude.updateHp()
+      dude.color === this.color ? dude.updateScore() : dude.updateHp(-1)
     }
     return hit
   }

@@ -5,9 +5,10 @@ function resetGame(){
   allBirds = [];
   allEggs = [];
   allPowerups = [];
+  slowState = false;
   dude = new Dude();
   dude.resetDude();
-  for(i = 0; i < 4; i++){
+  for(i = 0; i < 6; i++){
     let bird = new Bird()
     allBirds.push(bird)
   }
@@ -15,8 +16,6 @@ function resetGame(){
   togglePopup();
 
   loop();
-
-
 }
 
 function checkGameStatus(){
