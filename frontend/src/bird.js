@@ -28,9 +28,9 @@ class Bird {
   }
 
   update(){
-    if(slowState === false){
+    if(timeSlowState === false){
       this.x+=this.birdSpeed
-    }else if(slowState === true){
+    }else if(timeSlowState === true){
       this.x+=(this.birdSpeed*0.2)
 
     }

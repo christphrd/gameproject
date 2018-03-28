@@ -5,7 +5,11 @@ function resetGame(){
   allBirds = [];
   allEggs = [];
   allPowerups = [];
-  slowState = false;
+  timeSlowState = false;
+  speedTimeout = null;
+  timeSlowTimeout = null;
+  sizeStateTimeout = null;
+  rainbowTimeout = null;
   dude = new Dude();
   dude.resetDude();
   for(i = 0; i < 6; i++){

@@ -23,9 +23,9 @@ class Egg {
   }
 
   update(){
-    if(slowState === false){
+    if(timeSlowState === false){
       this.y+=this.eggSpeed
-    }else if(slowState === true){
+    }else if(timeSlowState === true){
       this.y+=(this.eggSpeed*0.2)
     }
   }
@@ -33,7 +33,11 @@ class Egg {
   checkCollision(){
     let hit = collideCircleCircle(dude.x, dude.y, dude.size, this.x, this.y, this.size)
     if(hit){
-      dude.color === this.color ? dude.updateScore() : dude.updateHp(-1)
+      if(dude.rainbow === false){
+        dude.color === this.color ? dude.updateScore(1) : dude.updateHp(-1)
+      }else if(dude.rainbow === true){
+        dude.updateScore(1)
+      }
     }
     return hit
   }
