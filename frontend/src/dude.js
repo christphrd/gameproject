@@ -21,8 +21,8 @@ class Dude {
   }
 
   update(){
-    if (keyIsDown(LEFT_ARROW) && this.x>=30) { this.x -= 10 }
-    if (keyIsDown(RIGHT_ARROW) && this.x<=674) { this.x += 10 }
+    if (keyIsDown(LEFT_ARROW) && this.x>=30) { this.x -= 9 }
+    if (keyIsDown(RIGHT_ARROW) && this.x<=674) { this.x += 9 }
     if (keyIsDown(65)){
       this.color = 1
     }else if(keyIsDown(83)){

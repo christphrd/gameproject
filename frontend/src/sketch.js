@@ -10,7 +10,6 @@ function start() {
 
 function createDude() {
   dude = new Dude();
-
 }
 
 function setup() {
@@ -40,6 +39,7 @@ function draw(){
   }
 
   checkGameStatus();
+  pauseGame();
 
   //modulo to have eggs drop at an interval in draw function
   if(frameCount % 10 === 0){
@@ -63,7 +63,11 @@ function resetGame(){
   loop()
 }
 
-
+function pauseGame(){
+  if(keyIsDown(80)) {
+    noLoop();
+  }
+}
 
 function checkGameStatus(){
   if(dude.hp === 0){
