@@ -10,11 +10,11 @@ function resetGame(){
     let bird = new Bird()
     allBirds.push(bird)
   }
+  document.getElementById('game-window').style.display = 'block'
+  document.getElementById("highscores").style.display = 'none'
   paused = false;
   togglePopup();
   loop();
-  let highScores = document.getElementById("popup-scores")
-  highScores.style.display = 'none'
 }
 
 function checkGameStatus(){
@@ -35,28 +35,6 @@ function pauseGame(){
   }
 }
 
-//Display high scores and form to submit score
-function toggleDisplayScores(data) {
-  let highScores = document.getElementById("popup-scores")
-  highScores.children[2].addEventListener('click', resetGame)
-  highScores.style.display = 'block'
-  let highScoreList = document.getElementById('high-score-list')
-  highScoreList.innerText = " "
-  let topTenScoreArr = data.scores.slice(0,10)
-  for(let i=0; i< topTenScoreArr.length; i++){
-    let scoreElement = document.createElement('li')
-    scoreElement.innerText = `${topTenScoreArr[i].user_initial}: ${topTenScoreArr[i].points}`
-    highScoreList.append(scoreElement)
-  }
-}
-
-//fetch request for getting scores
-function getScores() {
-  return fetch('http://localhost:3000/levels/1')
-  .then(res => res.json())
-  .then(json => toggleDisplayScores(json))
-}
-
 function unpause(){
   paused = false;
   togglePopup();
@@ -75,9 +53,7 @@ function togglePopup(){
     noLoop();
   }else{
     popup.style.display = ''
-    for(let i=0; i<4; i++){
-      popup.children[i].style.display = ''
-    }
+    for(let i=0; i<4; i++){ popup.children[i].style.display = ''}
   }
   return popup
 }

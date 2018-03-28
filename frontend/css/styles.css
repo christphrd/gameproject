@@ -48,18 +48,19 @@ body{ font-family: 'Press Start 2P', cursive; }
   cursor: pointer;
 }
 
-#popup-scores{
+#highscores{
   z-index: 100;
   position: relative;
+  margin: auto;
   width: 700px;
   height: 475px;
-  margin: auto;
+  padding-top: 30px;
   background-color: black;
   text-align: center;
   color: white;
 }
 
-#popup-scores ul{
+#highscores ul{
   padding-left: 0px;
   list-style: none;
 }
