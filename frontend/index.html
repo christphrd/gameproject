@@ -5,27 +5,35 @@
   <script language="javascript" type="text/javascript" src="src/egg.js"></script>
   <script language="javascript" type="text/javascript" src="src/powerup.js"></script>
   <script language="javascript" type="text/javascript" src="src/game.js"></script>
+    <script language="javascript" type="text/javascript" src="src/highscores.js"></script>
   <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.21/p5.js"></script>
   <script language="javascript" type="text/javascript" src="src/p5.collide2d.js"></script>
   <script language="javascript" type="text/javascript" src="src/sketch.js"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <div id='navbar'>
-    <p id='show-score'>Current Score: </p>
-    <p id='show-hp'>HP: 10</p>
-  </div>
-
   <div id='game-window'>
+    <div id='navbar'>
+      <p id='show-score'></p>
+      <p id='show-hp'></p>
+    </div>
+
     <div id='popup'>
-      <h4>Game Over!</h4>
-      <p>New Game</p>
+      <h3>Game Over!</h3>
       <p>Resume</p>
+      <p>New Game</p>
       <p>High Scores</p>
     </div>
+  </div>
+
+  <div id='highscores'>
+    <h2>High Scores</h2>
+    <table id='high-score-table'></table>
+    <p>New Game</p>
   </div>
 
 </body>
