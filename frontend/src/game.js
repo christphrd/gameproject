@@ -4,9 +4,14 @@ function resetGame(){
   allBirds = [];
   allEggs = [];
   allPowerups = [];
+  timeSlowState = false;
+  speedTimeout = null;
+  timeSlowTimeout = null;
+  sizeStateTimeout = null;
+  rainbowTimeout = null;
   dude = new Dude();
   dude.resetDude();
-  for(i = 0; i < 4; i++){
+  for(i = 0; i < 6; i++){
     let bird = new Bird()
     allBirds.push(bird)
   }
