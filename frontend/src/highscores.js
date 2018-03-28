@@ -4,7 +4,7 @@ function getScores() {
   .then(json => displayScores(json))
 }
 
-function displayScores(data) {
+function displayScores(json) {
 
   document.getElementById('highscores').style.display = 'block'
   document.getElementById('highscores').children[2].addEventListener('click', resetGame)
@@ -13,7 +13,7 @@ function displayScores(data) {
   let highScoreTable = document.getElementById('high-score-table')
   highScoreTable.innerHTML = "<tr><th>Rank</th><th>Name</th><th>Score</th></tr>"
 
-  let topTenScores = data.scores.slice(0,10)
+  let topTenScores = json.scores.slice(0,10)
 
   for(let i=0; i< topTenScores.length; i++){
     let row = document.createElement('tr')

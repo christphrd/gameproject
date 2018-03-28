@@ -51,27 +51,18 @@ class Dude {
       this.y = height-49
     }
 
-
   }
 
   updateScore(amount){
     let showScore = document.getElementById('show-score')
-<<<<<<< HEAD
     dude.score += amount
     showScore.innerText = "Current Score: " + dude.score
-=======
-    showScore.innerText = "Eggs: " + ++dude.score
->>>>>>> master
   }
 
   updateHp(amount){
     let showHp = document.getElementById('show-hp')
-<<<<<<< HEAD
     dude.hp += amount
     showHp.innerText = "Current Hp: " + dude.hp
-=======
-    showHp.innerText = "HP: " + --dude.hp
->>>>>>> master
   }
 
   resetDude(){

@@ -13,7 +13,7 @@ class Bird {
 
   show(){
     fill(0,255,255);
-    ellipse(this.x, this.y + (this.scalar * sin(this.angFunc())), 50, 50);
+    ellipse(this.x, this.y + (this.scalar * sin(this.angleToRadians())), 50, 50);
 
     if(this.x>width+50 && this.x >1){
       this.x = -50
@@ -22,7 +22,7 @@ class Bird {
     }
   }
 
-  angFunc() {
+  angleToRadians() {
     this.angle += this.origAngle
     return radians(this.angle)
   }
