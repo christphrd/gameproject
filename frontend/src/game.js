@@ -19,8 +19,7 @@ function checkGameStatus(){
   if(dude.hp === 0){
     paused = true;
     togglePopup();
-    popup.children[0].style.display = 'block'
-    popup.children[2].style.display = 'block'
+    popup.children[0].innerText = 'Game Over!'
     popup.children[3].style.display = 'block'
   }
 }
@@ -30,9 +29,7 @@ function pauseGame(){
     paused = true;
     togglePopup();
     popup.children[0].innerText = 'Paused'
-    popup.children[0].style.display = 'block'
     popup.children[1].style.display = 'block'
-    popup.children[2].style.display = 'block'
   }
 }
 
@@ -48,6 +45,8 @@ function togglePopup(){
     popup.style.display = 'block'
     popup.children[1].addEventListener('click', unpause)
     popup.children[2].addEventListener('click', resetGame)
+    popup.children[0].style.display = 'block'
+    popup.children[2].style.display = 'block'
     noLoop();
   }else{
     popup.style.display = ''
