@@ -35,6 +35,16 @@ class Dude {
     }else if(keyIsDown(70)){
       this.color = 0;
     }
+    if(this.sizeState === 1){
+      this.size = 50
+      dude.y = height-26
+    }else if(this.sizeState === 2){
+      this.size = 20
+      dude.y = height-11
+    }else if(this.sizeState === 3){
+      this.size = 100
+      dude.y = height-49
+    }
   }
 
   updateScore(){

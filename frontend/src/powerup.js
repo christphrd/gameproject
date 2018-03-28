@@ -56,20 +56,12 @@ class Powerup {
   }
 
   miniDude(){
-    dude.size = 20
-    dude.y = height-11
-    setTimeout(function(){
-      dude.size = 50,
-      dude.y = height-26
-    }, 5000);
+    dude.sizeState = 2
+    setTimeout(function(){ dude.sizeState = 1 }, 5000);
   }
 
   fatDude(){
-    dude.size = 100
-    dude.y = height-49
-    setTimeout(function(){
-      dude.size = 50,
-      dude.y = height-26
-    }, 5000);
+    dude.sizeState = 3
+    setTimeout(function(){ dude.sizeState = 1 }, 5000);
   }
 }
