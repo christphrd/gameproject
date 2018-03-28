@@ -34,5 +34,23 @@ class Dude {
     }
   }
 
+  updateScore(){
+    let showScore = document.getElementById('show-score')
+    showScore.innerText = "Current Score: " + ++dude.score
+  }
+
+  updateHp(){
+    let showHp = document.getElementById('show-hp')
+    showHp.innerText = "Current Hp: " + --dude.hp
+  }
+
+  resetDude(){
+    let showScore = document.getElementById('show-score')
+    showScore.innerText = "Current Score: 0"
+
+    let showHp = document.getElementById('show-hp')
+    showHp.innerText = "HP: " + dude.hp
+  }
+
 
 }

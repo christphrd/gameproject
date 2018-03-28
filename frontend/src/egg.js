@@ -19,23 +19,13 @@ class Egg {
     ellipse(this.x, this.y, 10, 10);
   }
 
-  update(){
-    this.y+=this.eggSpeed
-  }
+  update(){ this.y+=this.eggSpeed }
 
   checkCollision(){
     let hit = collideCircleCircle(dude.x, height-26, 48, this.x, this.y, 10)
-    if(hit === true){
-      if(dude.color === this.color){
-        let showScore = document.getElementById('show-score')
-        dude.score++
-        showScore.innerText = "Current Score: " + dude.score
-      }else{
-        let showHp = document.getElementById('show-hp')
-        dude.hp--
-        showHp.innerText = "Current Hp: " + dude.hp
-      }
-      return hit
+    if(hit){
+      dude.color === this.color ? dude.updateScore() : dude.updateHp()
     }
+    return hit
   }
 }

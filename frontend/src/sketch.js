@@ -1,21 +1,15 @@
-
-let allBirds = [];
-let allEggs = [];
-let dude = new Dude();
-
 window.addEventListener("keydown", function(e) {
-    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-      e.preventDefault();
-    }
+  if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    e.preventDefault();
+  }
 }, false);
 
 function setup() {
-  let canvas = createCanvas(700,500);
+  let canvas = createCanvas(700,475);
   canvas.parent('game-window')
-  for(i = 0; i < 4; i++){
-    let bird = new Bird()
-    allBirds.push(bird)
-  }
+  let resetButton = document.getElementById('new-game')
+  resetButton.addEventListener('click', resetGame)
+  resetGame()
 }
 
 function draw(){
@@ -46,6 +40,16 @@ function draw(){
   }
 }
 
+function resetGame(){
+  allBirds = [];
+  allEggs = [];
+  dude = new Dude();
+  dude.resetDude();
+  for(i = 0; i < 4; i++){
+    let bird = new Bird()
+    allBirds.push(bird)
+  }
+}
 
 
 function checkGameStatus(){

@@ -3,6 +3,7 @@
   <script language="javascript" type="text/javascript" src="src/dude.js"></script>
   <script language="javascript" type="text/javascript" src="src/bird.js"></script>
   <script language="javascript" type="text/javascript" src="src/egg.js"></script>
+  <script language="javascript" type="text/javascript" src="src/game.js"></script>
   <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.21/p5.js"></script>
   <script language="javascript" type="text/javascript" src="src/p5.collide2d.js"></script>
   <script language="javascript" type="text/javascript" src="src/sketch.js"></script>
@@ -11,12 +12,14 @@
 </head>
 
 <body>
-  <div id='navbar'>
-    <p id='new-game'>New Game</p>
-    <p>High Scores</p>
-    <p id="show-score">Current Score: </p>
-    <p id="show-hp">HP: 10</p>
+  <div id='container'>
+    <div id='navbar'>
+      <p id='new-game'>New Game</p>
+      <p>High Scores</p>
+      <p id='show-score'>Current Score: </p>
+      <p id='show-hp'>HP: 10</p>
+    </div>
+    <div id='game-window'></div>
   </div>
-  <div id="game-window"></div>
 </body>
 </html>
