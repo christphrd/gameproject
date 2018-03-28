@@ -11,20 +11,23 @@ function displayScores(data) {
   document.getElementById('game-window').style.display = 'none'
 
   let highScoreTable = document.getElementById('high-score-table')
-  highScoreTable.innerHTML = "<tr><th>Name</th><th>Score</th></tr>"
+  highScoreTable.innerHTML = "<tr><th>Rank</th><th>Name</th><th>Score</th></tr>"
 
   let topTenScores = data.scores.slice(0,10)
 
   for(let i=0; i< topTenScores.length; i++){
     let row = document.createElement('tr')
+    let rank = document.createElement('td')
     let username = document.createElement('td')
-    username.innerText = topTenScores[i].user_initial
-    row.append(username)
-
     let score = document.createElement('td')
-    score.innerText =topTenScores[i].points
-    row.append(score)
 
+    rank.innerText = i+1
+    username.innerText = topTenScores[i].user_initial
+    score.innerText =topTenScores[i].points
+
+    row.append(rank)
+    row.append(score)
+    row.append(username)
     highScoreTable.append(row)
   }
 }
