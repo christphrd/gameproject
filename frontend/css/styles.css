@@ -49,11 +49,17 @@ body{ font-family: 'Press Start 2P', cursive; }
 }
 
 #popup-scores{
-  display: none;
-  position: absolute;
-  height: 475px;
+  z-index: 100;
+  position: relative;
   width: 700px;
+  height: 475px;
+  margin: auto;
   background-color: black;
   text-align: center;
   color: white;
+}
+
+#popup-scores ul{
+  padding-left: 0px;
+  list-style: none;
 }

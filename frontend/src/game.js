@@ -40,18 +40,15 @@ function toggleDisplayScores(data) {
   let highScores = document.getElementById("popup-scores")
   highScores.children[2].addEventListener('click', resetGame)
   highScores.style.display = 'block'
-  let highScoreList = document.getElementById('high-score-title')
-  highScoreList.innerText = "High Scores"
+  let highScoreList = document.getElementById('high-score-list')
+  highScoreList.innerText = " "
   let topTenScoreArr = data.scores.slice(0,10)
   for(let i=0; i< topTenScoreArr.length; i++){
-    let scoreElement = document.createElement('p')
+    let scoreElement = document.createElement('li')
     scoreElement.innerText = `${topTenScoreArr[i].user_initial}: ${topTenScoreArr[i].points}`
     highScoreList.append(scoreElement)
   }
 }
-
-//clear out high scores and remove display scores window
-
 
 //fetch request for getting scores
 function getScores() {
@@ -69,12 +66,12 @@ function unpause(){
 function togglePopup(){
   let popup = document.getElementById('popup')
   if (paused){
-    popup.style.display = 'block'
     popup.children[1].addEventListener('click', unpause)
     popup.children[2].addEventListener('click', resetGame)
+    popup.children[3].addEventListener('click', getScores)
     popup.children[0].style.display = 'block'
     popup.children[2].style.display = 'block'
-    popup.children[3].addEventListener('click', getScores)
+    popup.style.display = 'block'
     noLoop();
   }else{
     popup.style.display = ''
