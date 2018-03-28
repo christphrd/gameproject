@@ -1,17 +1,16 @@
 body{
   font-family: 'Press Start 2P', cursive;
-  background-color: #cdcac1;
+  background-color: #efece7;
 }
 
-
 #container{
-  margin: auto;
-  padding: 10px;
+  margin: 40px auto;
+  padding: 5px;
   width: 700px;
-  height: 505px;
+  height: 510px;
   background-color:#fafafa;
   border-radius: 5px;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 5px #71706b;
 }
 
 #navbar{
@@ -19,30 +18,34 @@ body{
   height: 30px;
   width: 660px;
   display: flex;
-  line-height: 5px;
+  font-size: 12px;
+  line-height: 10px;
+  color: #7e8849;
   padding: 0 20px;
   justify-content: space-between;
-  background-color: red;
+  border-bottom: 5px solid white;
+  box-shadow: 0 0 5px #74823b inset;
+  background-color: #d1ec62;
 }
 
 #game-window{
+  display: none;
   position: relative;
   height: 475px;
   margin: auto;
 }
 
-
 #popup{
   display: none;
   position: absolute;
   left: 250px;
-  top: 150px;
+  top: 175px;
   width: 200px;
   padding: 10px 0;
   background-color: black;
   border: 5px solid white;
   border-radius: 5px;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 5px #627c8c;
   text-align: center;
   color: white;
 }
@@ -94,8 +97,9 @@ body{
   position: relative;
   margin: auto;
   width: 700px;
-  height: 475px;
+  height: 480px;
   padding-top: 30px;
+  border-radius: 5px;
   background-color: #b1e1fe;
   text-align: center;
   color: white;
