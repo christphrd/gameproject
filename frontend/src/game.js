@@ -24,7 +24,7 @@ function checkGameStatus(){
     togglePopup();
     popup.children[0].style.display = 'block'
     popup.children[1].style.display = 'block'
-    popup.children[1].addEventListener('click', resetGame)
+
   }
 }
 
@@ -32,13 +32,23 @@ function pauseGame(){
   if(keyIsDown(80)) {
     paused = true;
     togglePopup();
+    popup.children[1].style.display = 'block'
+    popup.children[2].style.display = 'block'
   }
+}
+
+function unpause(){
+  paused = false;
+  togglePopup();
+  loop();
 }
 
 function togglePopup(){
   let popup = document.getElementById('popup')
   if (paused){
     popup.style.display = 'block'
+    popup.children[1].addEventListener('click', resetGame)
+    popup.children[2].addEventListener('click', unpause)
     noLoop();
   }else{
     popup.style.display = ''
