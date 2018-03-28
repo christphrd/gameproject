@@ -7,8 +7,7 @@ window.addEventListener("keydown", function(e) {
 function setup() {
   let canvas = createCanvas(700,475);
   canvas.parent('game-window')
-  resetGame();
-  noStroke();
+  welcomeScreen();
 }
 
 function draw(){

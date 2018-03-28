@@ -10,8 +10,7 @@ function resetGame(){
     let bird = new Bird()
     allBirds.push(bird)
   }
-  document.getElementById('game-window').style.display = 'block'
-  document.getElementById("highscores").style.display = 'none'
+
   paused = false;
   togglePopup();
   loop();
@@ -56,4 +55,16 @@ function unpause(){
   paused = false;
   togglePopup();
   loop();
+}
+
+function welcomeScreen(){
+  document.getElementById('welcome').style.display = 'block'
+  document.getElementById('game-window').style.display = 'none'
+  document.getElementById('new-game').addEventListener('click', loadGame)
+}
+
+function loadGame(){
+  document.getElementById('welcome').style.display = 'none'
+  document.getElementById('game-window').style.display = 'block'
+  resetGame()
 }

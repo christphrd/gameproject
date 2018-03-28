@@ -7,11 +7,11 @@ function getScores() {
 function displayScores(data) {
 
   document.getElementById('highscores').style.display = 'block'
-  document.getElementById('highscores').children[2].addEventListener('click', resetGame)
+  document.getElementById('highscores').children[2].addEventListener('click', hideScores)
   document.getElementById('game-window').style.display = 'none'
 
   let highScoreTable = document.getElementById('high-score-table')
-  highScoreTable.innerHTML = "<tr><th>Rank</th><th>Name</th><th>Score</th></tr>"
+  highScoreTable.innerHTML = "<tr><th>RANK</th><th>NAME</th><th>SCORE</th></tr>"
 
   let topTenScores = data.scores.slice(0,10)
 
@@ -30,4 +30,10 @@ function displayScores(data) {
     row.append(username)
     highScoreTable.append(row)
   }
+}
+
+function hideScores(){
+  document.getElementById('game-window').style.display = 'block'
+  document.getElementById("highscores").style.display = 'none'
+  resetGame();
 }
