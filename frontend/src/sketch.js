@@ -18,6 +18,7 @@ function setup() {
   let resetButton = document.getElementById('new-game')
   resetButton.addEventListener('click', resetGame);
   resetGame();
+  noStroke();
 }
 
 function draw(){
@@ -41,7 +42,7 @@ function draw(){
   checkGameStatus();
   pauseGame();
 
-  if(frameCount % 120 === 0){
+  if(frameCount % 20 === 0){
     let bird = allBirds[Math.floor(random(0, 4))]
     if (bird.x > 10 && bird.x < 690){
       let egg = new Egg(bird.x, bird.y)
@@ -66,7 +67,7 @@ function resetGame(){
   allEggs = [];
   dude = new Dude();
   dude.resetDude();
-  for(i = 0; i < 4; i++){
+  for(i = 0; i < 8; i++){
     let bird = new Bird()
     allBirds.push(bird)
   }

@@ -1,6 +1,6 @@
 
 class Bird {
-  constructor(birdSpeed = random(2,8), scalar = random(10,70), angle = random(2,7)){
+  constructor(birdSpeed = random(-8,8), scalar = random(10,70), angle = random(2,6)){
     this.x = random(width)
     this.y = random(40, 100)
     this.birdSpeed = birdSpeed
@@ -13,8 +13,10 @@ class Bird {
     fill(0,255,255);
     ellipse(this.x, this.y + (this.scalar * sin(this.angFunc())), 50, 50);
 
-    if(this.x>width){
-      this.x = 0
+    if(this.x>width+50 && this.x >1){
+      this.x = -50
+    } else if(this.x<-50 && this.x < -1) {
+      this.x = width-50
     }
   }
 
