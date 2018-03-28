@@ -26,7 +26,7 @@ function draw(){
   checkGameStatus();
   pauseGame();
 
-  if(frameCount % 10 === 0){
+  if(frameCount % 100 === 0){
     let bird = allBirds[floor(random(0, allBirds.length))]
     if (bird.x > 10 && bird.x < 690){
       let egg = new Egg(bird.x, bird.y, bird.color)

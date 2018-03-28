@@ -4,7 +4,7 @@ class Powerup {
     this.y = y
     this.size = size
     this.powerupSpeed = random(1,3)
-    this.color = floor(random(6))
+    this.color = floor(random(7))
   }
 
   show(){
@@ -20,6 +20,8 @@ class Powerup {
       fill('orange')
     }else if(this.color === 5){
       fill('pink')
+    }else if(this.color === 6){
+      fill('grey')
     }
     ellipse(this.x, this.y, this.size, this.size);
   }
@@ -29,21 +31,27 @@ class Powerup {
   checkCollision(){
     let hit = collideCircleCircle(dude.x, dude.y, dude.size, this.x, this.y, this.size)
     if(hit){
-      if(this.color === 0){
-        this.fasterDude()
-      } else if (this.color === 1){
-        this.timeSlow()
-      } else if (this.color === 2){
-        this.gainLife()
-      } else if (this.color === 3){
-        this.miniDude()
-      } else if (this.color === 4){
-        this.fatDude()
-      } else if (this.color === 5){
-        this.rainbowDude()
-      }
+      this.activatePowerup();
     }
     return hit
+  }
+
+  activatePowerup(){
+    if(this.color === 0){
+      this.fasterDude()
+    } else if (this.color === 1){
+      this.timeSlow()
+    } else if (this.color === 2){
+      this.gainLife()
+    } else if (this.color === 3){
+      this.miniDude()
+    } else if (this.color === 4){
+      this.fatDude()
+    } else if (this.color === 5){
+      this.rainbowDude()
+    } else if (this.color === 6){
+      this.mysteryBox()
+    }
   }
 
   fasterDude(){
@@ -86,4 +94,9 @@ class Powerup {
     dude.updateScore(1);
   }
 
+  mysteryBox(){
+    this.color = floor(random(6))
+    console.log(this.color)
+    this.activatePowerup();
+  }
 }
