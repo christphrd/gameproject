@@ -16,8 +16,8 @@ function setup() {
   let canvas = createCanvas(700,475);
   canvas.parent('game-window')
   let resetButton = document.getElementById('new-game')
-  resetButton.addEventListener('click', resetGame)
-  resetGame()
+  resetButton.addEventListener('click', resetGame);
+  resetGame();
 }
 
 function draw(){
@@ -41,13 +41,23 @@ function draw(){
   checkGameStatus();
   pauseGame();
 
-  //modulo to have eggs drop at an interval in draw function
-  if(frameCount % 10 === 0){
+  if(frameCount % 120 === 0){
     let bird = allBirds[Math.floor(random(0, 4))]
     if (bird.x > 10 && bird.x < 690){
       let egg = new Egg(bird.x, bird.y)
       allEggs.push(egg)
     }
+  }
+}
+
+function checkGameStatus(){
+  if(dude.hp === 0){
+    showPopup();
+    let gameOver = document.getElementById('game-over')
+    gameOver.style.display = 'block'
+    let highScores = document.getElementById('high-scores')
+    highScores.style.display = 'block'
+    noLoop();
   }
 }
 
@@ -60,17 +70,27 @@ function resetGame(){
     let bird = new Bird()
     allBirds.push(bird)
   }
-  loop()
+  hidePopup();
+  loop();
 }
 
 function pauseGame(){
   if(keyIsDown(80)) {
+    showPopup();
+    let resume = document.getElementById('resume-game')
+    resume.style.display = 'block';
     noLoop();
   }
 }
 
-function checkGameStatus(){
-  if(dude.hp === 0){
-    noLoop();
-  }
+function showPopup(){
+  let popup = document.getElementById('popup')
+  popup.style.display = 'block';
+  let newGame = document.getElementById('new-game')
+  newGame.style.display = 'block';
+}
+
+function hidePopup(){
+  let popup = document.getElementById('popup')
+  popup.style.display = 'none';
 }
