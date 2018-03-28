@@ -26,21 +26,6 @@ function checkGameStatus(){
   }
 }
 
-function pauseGame(){
-  if(keyIsDown(80)) {
-    paused = true;
-    togglePopup();
-    popup.children[0].innerText = 'Paused'
-    popup.children[1].style.display = 'block'
-  }
-}
-
-function unpause(){
-  paused = false;
-  togglePopup();
-  loop();
-}
-
 function togglePopup(){
   let popup = document.getElementById('popup')
   if (paused){
@@ -56,4 +41,19 @@ function togglePopup(){
     for(let i=0; i<4; i++){ popup.children[i].style.display = ''}
   }
   return popup
+}
+
+function pauseGame(){
+  if(keyIsDown(80)) {
+    paused = true;
+    togglePopup();
+    popup.children[0].innerText = 'Paused'
+    popup.children[1].style.display = 'block'
+  }
+}
+
+function unpause(){
+  paused = false;
+  togglePopup();
+  loop();
 }

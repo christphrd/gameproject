@@ -15,9 +15,9 @@ function displayScores(data) {
 
   let topTenScores = data.scores.slice(0,10)
 
-  for(let i=0; i< topTenScoreArr.length; i++){
-    let scoreLI = document.createElement('li')
-    scoreElement.innerText = `${topTenScoreArr[i].user_initial}: ${topTenScoreArr[i].points}`
-    highScoreList.append(scoreLI)
+  for(let i=0; i< topTenScores.length; i++){
+    let scoreElement= document.createElement('li')
+    scoreElement.innerText = `${topTenScores[i].user_initial}: ${topTenScores[i].points}`
+    highScoreList.append(scoreElement)
   }
 }
