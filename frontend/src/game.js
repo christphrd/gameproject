@@ -1,6 +1,7 @@
 let paused = false;
 
 function resetGame(){
+
   allBirds = [];
   allEggs = [];
   dude = new Dude();
@@ -9,8 +10,12 @@ function resetGame(){
     let bird = new Bird()
     allBirds.push(bird)
   }
+  paused = false;
   togglePopup();
+
   loop();
+
+
 }
 
 function checkGameStatus(){
@@ -18,6 +23,8 @@ function checkGameStatus(){
     paused = true;
     togglePopup();
     popup.children[0].style.display = 'block'
+    popup.children[1].style.display = 'block'
+    popup.children[1].addEventListener('click', resetGame)
   }
 }
 
@@ -34,7 +41,10 @@ function togglePopup(){
     popup.style.display = 'block'
     noLoop();
   }else{
-    popup.style.display = 'none'
+    popup.style.display = ''
+    for(let i=0; i<4; i++){
+      popup.children[i].style.display = ''
+    }
   }
   return popup
 }
