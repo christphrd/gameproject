@@ -1,7 +1,6 @@
 let paused = false;
 
 function resetGame(){
-
   allBirds = [];
   allEggs = [];
   allPowerups = [];
@@ -13,10 +12,7 @@ function resetGame(){
   }
   paused = false;
   togglePopup();
-
   loop();
-
-
 }
 
 function checkGameStatus(){
@@ -24,8 +20,8 @@ function checkGameStatus(){
     paused = true;
     togglePopup();
     popup.children[0].style.display = 'block'
-    popup.children[1].style.display = 'block'
-
+    popup.children[2].style.display = 'block'
+    popup.children[3].style.display = 'block'
   }
 }
 
@@ -33,6 +29,8 @@ function pauseGame(){
   if(keyIsDown(80)) {
     paused = true;
     togglePopup();
+    popup.children[0].innerText = 'Paused'
+    popup.children[0].style.display = 'block'
     popup.children[1].style.display = 'block'
     popup.children[2].style.display = 'block'
   }
@@ -48,8 +46,8 @@ function togglePopup(){
   let popup = document.getElementById('popup')
   if (paused){
     popup.style.display = 'block'
-    popup.children[1].addEventListener('click', resetGame)
-    popup.children[2].addEventListener('click', unpause)
+    popup.children[1].addEventListener('click', unpause)
+    popup.children[2].addEventListener('click', resetGame)
     noLoop();
   }else{
     popup.style.display = ''

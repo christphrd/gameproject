@@ -1,3 +1,5 @@
+body{ font-family: 'Press Start 2P', cursive; }
+
 #navbar{
   margin: auto;
   height: 30px;
@@ -20,22 +22,28 @@
 #popup{
   display: none;
   position: absolute;
-  left: 275px;
-  top: 125px;
-  width: 150px;
+  left: 250px;
+  top: 150px;
+  width: 200px;
   padding: 10px 0;
   background-color: black;
   border: 5px solid white;
   border-radius: 5px;
   box-shadow: 0 0 5px black;
+  text-align: center;
+  color: white;
 }
 
-#popup p, h4{
+#popup h3{
+  font-size: 15px;
+}
+
+#popup p{
+  font-size: 12px;
   display: none;
-  color: white;
-  text-align: center;
 }
 
 #popup p:hover{
-  text-decoration: underline;
+  color: red;
+  cursor: pointer;
 }
