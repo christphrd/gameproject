@@ -51,6 +51,4 @@ class Dude {
     let showHp = document.getElementById('show-hp')
     showHp.innerText = "HP: " + dude.hp
   }
-
-
 }
