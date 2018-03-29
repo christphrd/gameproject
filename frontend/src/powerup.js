@@ -1,3 +1,6 @@
+let colorCodes = [0, 1, 2, 3, 4, 5, 6]
+let colorWeights = [18, 18, 18, 18, 18, 5, 5]
+
 class Powerup {
   constructor(x, y, size=20){
     this.x = x
@@ -36,19 +39,33 @@ class Powerup {
     return hit
   }
 
+  randomColor(things, weights) {
+    let totalWeight = 0;
+    for (let x in weights) {
+        totalWeight += x;
+    }
+    let random = floor(random() * totalWeight);
+    for (let i = 0; i < things.length; i++) {
+      random -= weights[i];
+      if (random < 0) {
+          return things[i];
+      }
+    }
+  }
+
   activatePowerup(){
     if(this.color === 0){
       this.fasterDude()
     } else if (this.color === 1){
       this.timeSlow()
     } else if (this.color === 2){
-      this.gainLife()
+      this.rainbowDude()
     } else if (this.color === 3){
       this.miniDude()
     } else if (this.color === 4){
       this.fatDude()
     } else if (this.color === 5){
-      this.rainbowDude()
+      this.gainLife()
     } else if (this.color === 6){
       this.mysteryBox()
     }
@@ -96,7 +113,6 @@ class Powerup {
 
   mysteryBox(){
     this.color = floor(random(6))
-    console.log(this.color)
     this.activatePowerup();
   }
 }
