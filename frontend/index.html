@@ -1,20 +1,22 @@
 <html>
 <head>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <script language="javascript" type="text/javascript" src="src/dude.js"></script>
   <script language="javascript" type="text/javascript" src="src/bird.js"></script>
   <script language="javascript" type="text/javascript" src="src/egg.js"></script>
   <script language="javascript" type="text/javascript" src="src/powerup.js"></script>
   <script language="javascript" type="text/javascript" src="src/game.js"></script>
-    <script language="javascript" type="text/javascript" src="src/highscores.js"></script>
+  <script language="javascript" type="text/javascript" src="src/index.js"></script>
+  <script language="javascript" type="text/javascript" src="src/highscores.js"></script>
   <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.21/p5.js"></script>
   <script language="javascript" type="text/javascript" src="src/p5.collide2d.js"></script>
   <script language="javascript" type="text/javascript" src="src/sketch.js"></script>
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-
 </head>
 
 <body>
+
+<div id="container">
 
   <div id='game-window'>
     <div id='navbar'>
@@ -27,14 +29,26 @@
       <p>Resume</p>
       <p>New Game</p>
       <p>High Scores</p>
+      <p>Rules</p>
     </div>
+
+  </div>
+
+  <div id='welcome'>
+    <h1 id='new-game'>New Game</h1>
+    <form id="username-form">
+      <input id="usernameinput" type="text" name="username" value="Enter Your Name"><br><br>
+      <input type="submit" value="Submit"/>
+    </form>
   </div>
 
   <div id='highscores'>
-    <h2>High Scores</h2>
+    <h2>HIGH SCORES</h2>
     <table id='high-score-table'></table>
     <p>New Game</p>
   </div>
+
+</div>
 
 </body>
 </html>

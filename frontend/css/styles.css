@@ -1,20 +1,37 @@
-body{ font-family: 'Press Start 2P', cursive; }
+body{
+  font-family: 'Press Start 2P', cursive;
+  background-color: #efece7;
+  overflow:hidden;
+}
+
+#container{
+  margin: 20px auto 0;
+  padding: 5px;
+  width: 700px;
+  height: 510px;
+  background-color:#fafafa;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #71706b;
+}
 
 #navbar{
   margin: auto;
   height: 30px;
   width: 660px;
   display: flex;
-  line-height: 5px;
+  font-size: 12px;
+  line-height: 10px;
+  color: #7e8849;
   padding: 0 20px;
   justify-content: space-between;
-  background-color: red;
-  border-bottom: 5px solid black;
+  border-bottom: 5px solid white;
+  box-shadow: 0 0 5px #74823b inset;
+  background-color: #d1ec62;
 }
 
 #game-window{
+  display: none;
   position: relative;
-  width: 700px;
   height: 475px;
   margin: auto;
 }
@@ -23,13 +40,13 @@ body{ font-family: 'Press Start 2P', cursive; }
   display: none;
   position: absolute;
   left: 250px;
-  top: 150px;
+  top: 175px;
   width: 200px;
   padding: 10px 0;
   background-color: black;
   border: 5px solid white;
   border-radius: 5px;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 5px #627c8c;
   text-align: center;
   color: white;
 }
@@ -49,11 +66,12 @@ body{ font-family: 'Press Start 2P', cursive; }
 }
 
 #highscores{
+  display: none;
   z-index: 100;
   position: relative;
   margin: auto;
   width: 700px;
-  height: 475px;
+  height: 480px;
   padding-top: 30px;
   background-color: black;
   text-align: center;
@@ -72,5 +90,18 @@ body{ font-family: 'Press Start 2P', cursive; }
 
 #highscores td{
   height: 25px;
+  color: white;
+}
+
+#welcome {
+  z-index: 100;
+  position: relative;
+  margin: auto;
+  width: 700px;
+  height: 480px;
+  padding-top: 30px;
+  border-radius: 5px;
+  background-color: #b1e1fe;
+  text-align: center;
   color: white;
 }

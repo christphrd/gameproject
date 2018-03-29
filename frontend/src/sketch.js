@@ -7,8 +7,7 @@ window.addEventListener("keydown", function(e) {
 function setup() {
   let canvas = createCanvas(700,475);
   canvas.parent('game-window')
-  resetGame();
-  noStroke();
+  welcomeScreen();
 }
 
 function draw(){
@@ -23,34 +22,20 @@ function draw(){
     allBirds[i].update()
   }
 
-  checkGameStatus();
-  pauseGame();
-
-  if(frameCount % 200 === 0){
-    let bird = allBirds[floor(random(0, allBirds.length))]
-    if (bird.x > 10 && bird.x < 690){
-      let egg = new Egg(bird.x, bird.y, bird.color)
-      allEggs.push(egg)
-    }
-  }
-
   for(let i = 0; i < allEggs.length; i++){
     allEggs[i].show()
     allEggs[i].update()
     if (allEggs[i].checkCollision() || allEggs[i].y > height){ allEggs.splice(i, 1) }
   }
 
-  if(frameCount % 10 === 0){
-    let bird = allBirds[floor(random(0, allBirds.length))]
-    if (bird.x > 10 && bird.x < 690){
-      let powerup = new Powerup(bird.x, bird.y)
-      allPowerups.push(powerup)
-    }
-  }
+  checkGameStatus();
+  pauseGame();
 
-  for(let i = 0; i < allPowerups.length; i++){
-    allPowerups[i].show()
-    allPowerups[i].update()
-    if (allPowerups[i].checkCollision() || allPowerups[i].y > height){ allPowerups.splice(i, 1) }
+  if(frameCount % 20 === 0){
+    let bird = allBirds[Math.floor(random(0, 4))]
+    if (bird.x > 10 && bird.x < 690){
+      let egg = new Egg(bird.x, bird.y)
+      allEggs.push(egg)
+    }
   }
 }
