@@ -5,7 +5,7 @@ function getScores() {
 }
 
 function displayScores(data) {
-  //dude.score is the score & userInitials is the score
+  //post to db with fetch
   newScore = {
     points: dude.score,
     user_initial: userInitials,
@@ -26,8 +26,26 @@ function displayScores(data) {
   let highScoreTable = document.getElementById('high-score-table')
   highScoreTable.innerHTML = "<tr><th>Rank</th><th>Score</th><th>Initials</th></tr>"
 
-  debugger;
-  let topTenScores = data.scores.slice(0,10)
+  //optimistic rendering
+  data.scores.push(newScore)
+  pushedData = data.scores
+  // debugger;
+  //1. sorting arr of obj
+  function compare(a, b) {
+    const pointsA = a.points;
+    const pointsB = b.points;
+
+    let comparison = 0;
+    if (pointsA > pointsB) {
+      comparison = 1;
+    } else if (pointsA < pointsB) {
+      comparison = -1;
+    }
+    return comparison * -1;
+  }
+  pushedData.sort(compare)
+
+  let topTenScores = pushedData.slice(0,10)
 
   for(let i=0; i< topTenScores.length; i++){
     let row = document.createElement('tr')
