@@ -13,44 +13,44 @@ function setup() {
 
 function draw(){
   background(175, 225, 255);
-  if(dude) {
+  if(typeof dude !== "undefined" && typeof allBirds !== "undefined" && typeof allEggs !== "undefined" && typeof allPowerups !== "undefined") {
     dude.show();
     dude.update();
-  }
 
-  for(let i = 0; i < allBirds.length; i++){
-    allBirds[i].show()
-    allBirds[i].update()
-  }
-
-  checkGameStatus();
-  pauseGame();
-
-  if(frameCount % 200 === 0){
-    let bird = allBirds[floor(random(0, allBirds.length))]
-    if (bird.x > 10 && bird.x < 690){
-      let egg = new Egg(bird.x, bird.y, bird.color)
-      allEggs.push(egg)
+    for(let i = 0; i < allBirds.length; i++){
+      allBirds[i].show()
+      allBirds[i].update()
     }
-  }
 
-  for(let i = 0; i < allEggs.length; i++){
-    allEggs[i].show()
-    allEggs[i].update()
-    if (allEggs[i].checkCollision() || allEggs[i].y > height){ allEggs.splice(i, 1) }
-  }
+    checkGameStatus();
+    pauseGame();
 
-  if(frameCount % 10 === 0){
-    let bird = allBirds[floor(random(0, allBirds.length))]
-    if (bird.x > 10 && bird.x < 690){
-      let powerup = new Powerup(bird.x, bird.y)
-      allPowerups.push(powerup)
+    if(frameCount % 1000 === 0){
+      let bird = allBirds[floor(random(0, allBirds.length))]
+      if (bird.x > 10 && bird.x < 690){
+        let egg = new Egg(bird.x, bird.y, bird.color)
+        allEggs.push(egg)
+      }
     }
-  }
 
-  for(let i = 0; i < allPowerups.length; i++){
-    allPowerups[i].show()
-    allPowerups[i].update()
-    if (allPowerups[i].checkCollision() || allPowerups[i].y > height){ allPowerups.splice(i, 1) }
+    for(let i = 0; i < allEggs.length; i++){
+      allEggs[i].show()
+      allEggs[i].update()
+      if (allEggs[i].checkCollision() || allEggs[i].y > height){ allEggs.splice(i, 1) }
+    }
+
+    if(frameCount % 10 === 0){
+      let bird = allBirds[floor(random(0, allBirds.length))]
+      if (bird.x > 10 && bird.x < 690){
+        let powerup = new Powerup(bird.x, bird.y)
+        allPowerups.push(powerup)
+      }
+    }
+
+    for(let i = 0; i < allPowerups.length; i++){
+      allPowerups[i].show()
+      allPowerups[i].update()
+      if (allPowerups[i].checkCollision() || allPowerups[i].y > height){ allPowerups.splice(i, 1) }
+    }
   }
 }

@@ -8,6 +8,7 @@ class Powerup {
     this.size = size
     this.powerupSpeed = random(1,3)
     this.color = floor(random(7))
+    // this.color = this.randomColor(colorCodes, colorWeights)
   }
 
   show(){
@@ -38,20 +39,22 @@ class Powerup {
     }
     return hit
   }
-
-  randomColor(things, weights) {
-    let totalWeight = 0;
-    for (let x in weights) {
-        totalWeight += x;
-    }
-    let random = floor(random() * totalWeight);
-    for (let i = 0; i < things.length; i++) {
-      random -= weights[i];
-      if (random < 0) {
-          return things[i];
-      }
-    }
-  }
+  //
+  // randomColor(things, weights) {
+  //   let totalWeight = 0;
+  //   let final = 0;
+  //   for (let x in weights) {
+  //       totalWeight += x;
+  //   }
+  //   let randomNum = floor(random(0.01, 1) * totalWeight);
+  //   for (let i = 0; i < things.length; i++) {
+  //     randomNum -= weights[i];
+  //     if (randomNum < 0) {
+  //       final = things[i];
+  //     }
+  //   }
+  //   return final
+  // }
 
   activatePowerup(){
     if(this.color === 0){

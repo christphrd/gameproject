@@ -72,5 +72,5 @@ function welcomeScreen(){
 function loadGame(){
   document.getElementById('welcome').style.display = 'none'
   document.getElementById('game-window').style.display = 'block'
-  resetGame()
+  resetGame();
 }
