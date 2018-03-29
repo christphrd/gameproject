@@ -65,6 +65,35 @@ body{
   cursor: pointer;
 }
 
+#tips{
+  display: none;
+  position: absolute;
+  left: 250px;
+  top: 175px;
+  width: 200px;
+  padding: 10px 0;
+  background-color: black;
+  border: 5px solid white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #627c8c;
+  text-align: center;
+  color: white;
+}
+
+#tips h3{
+  font-size: 15px;
+}
+
+#tips p{
+  font-size: 12px;
+  /* display: none; */
+}
+
+#backButton:hover{
+  color: red;
+  cursor: pointer;
+}
+
 #highscores{
   display: none;
   z-index: 100;
