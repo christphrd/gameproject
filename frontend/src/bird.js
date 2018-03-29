@@ -9,12 +9,11 @@ class Bird {
     this.scalar = scalar
     this.angle = angle
     this.origAngle = angle
+    this.image = loadGif("img/bird.gif")
   }
 
   show(){
-    fill(0,255,255);
-    ellipse(this.x, this.y + (this.scalar * sin(this.angleToRadians())), 50, 50);
-
+    image(this.image, this.x, this.y + (this.scalar * sin(this.angleToRadians())), 90, 50);
     if(this.x>width+50 && this.x >1){
       this.x = -50
     } else if(this.x<-50 && this.x < -1) {

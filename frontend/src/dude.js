@@ -3,7 +3,7 @@ class Dude {
     this.x = x
     this.y = y
     this.size = size
-    this.imgWidth = size*1.44
+    this.imgWidth = size*1.5
     this.imgHeight = size*1.2
     this.color = color
     this.speed = speed

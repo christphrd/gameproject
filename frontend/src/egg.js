@@ -1,3 +1,5 @@
+
+
 class Egg {
   constructor(x, y, speed = random(1,6)){
     this.x = x
@@ -7,19 +9,21 @@ class Egg {
     // this.eggSlowSpeed = speed*0.2
     this.color = floor(random(4))
     this.size = floor(random(25,41))
+    this.images = [loadGif('img/yellow-egg.gif'), loadGif('img/red-egg.gif'), loadGif('img/green-egg.gif'), loadGif('img/blue-egg.gif')]
   }
 
   show(){
     if(this.color === 0){
-      fill(255,255,100)
+      image(this.images[0], this.x, this.y, this.size, this.size);
     }else if(this.color === 1){
-      fill(255,0,0)
+      image(this.images[1], this.x, this.y, this.size, this.size);
     }else if(this.color === 2){
-      fill(0,255,0)
+      image(this.images[2], this.x, this.y, this.size, this.size);
     }else if(this.color === 3){
-      fill(0,0,255)
+      image(this.images[3], this.x, this.y, this.size, this.size);
     }
-    ellipse(this.x, this.y, this.size, this.size);
+    console.log(this.image)
+
   }
 
   update(){

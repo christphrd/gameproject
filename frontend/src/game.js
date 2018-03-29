@@ -22,7 +22,6 @@ function resetGame(){
   dude.image[2] = loadGif("img/green-dude.gif")
   dude.image[3] = loadGif("img/blue-dude.gif")
   dude.image[4] = loadGif("img/rainbow-dude.gif")
-
   dude.resetDude();
   console.log(dude)
   for(i = 0; i < 2; i++){
