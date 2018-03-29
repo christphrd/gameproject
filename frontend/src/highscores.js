@@ -4,16 +4,30 @@ function getScores() {
   .then(json => displayScores(json))
 }
 
-function displayScores(json) {
+function displayScores(data) {
+  //dude.score is the score & userInitials is the score
+  newScore = {
+    points: dude.score,
+    user_initial: userInitials,
+    level_id: 1
+  }
+  fetch('http://localhost:3000/scores', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(newScore)
+  })
 
   document.getElementById('highscores').style.display = 'block'
-  document.getElementById('highscores').children[2].addEventListener('click', hideScores)
+  document.getElementById('highscores').children[2].addEventListener('click', resetGame)
   document.getElementById('game-window').style.display = 'none'
 
   let highScoreTable = document.getElementById('high-score-table')
-  highScoreTable.innerHTML = "<tr><th>RANK</th><th>NAME</th><th>SCORE</th></tr>"
+  highScoreTable.innerHTML = "<tr><th>Rank</th><th>Score</th><th>Initials</th></tr>"
 
-  let topTenScores = json.scores.slice(0,10)
+  debugger;
+  let topTenScores = data.scores.slice(0,10)
 
   for(let i=0; i< topTenScores.length; i++){
     let row = document.createElement('tr')
@@ -30,10 +44,4 @@ function displayScores(json) {
     row.append(username)
     highScoreTable.append(row)
   }
-}
-
-function hideScores(){
-  document.getElementById('game-window').style.display = 'block'
-  document.getElementById("highscores").style.display = 'none'
-  resetGame();
 }
