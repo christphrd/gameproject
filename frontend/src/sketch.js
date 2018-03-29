@@ -24,8 +24,9 @@ function draw(){
 
     checkGameStatus();
     pauseGame();
+    increaseLevel();
 
-    if(frameCount % 10 === 0){
+    if(frameCount % eggDropChance === 0){
       let bird = allBirds[floor(random(0, allBirds.length))]
       if (bird.x > 10 && bird.x < 690){
         let egg = new Egg(bird.x, bird.y, bird.color)
@@ -39,7 +40,7 @@ function draw(){
       if (allEggs[i].checkCollision() || allEggs[i].y > height){ allEggs.splice(i, 1) }
     }
 
-    if(frameCount % 200 === 0){
+    if(frameCount % powerupDropChance === 0){
       let bird = allBirds[floor(random(0, allBirds.length))]
       if (bird.x > 10 && bird.x < 690){
         let powerup = new Powerup(bird.x, bird.y)
