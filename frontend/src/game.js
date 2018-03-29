@@ -53,6 +53,7 @@ function pauseGame(){
     togglePopup();
     popup.children[0].innerText = 'Paused'
     popup.children[1].style.display = 'block'
+    popup.children[4].style.display = 'block'
   }
 }
 
