@@ -35,6 +35,7 @@ function checkGameStatus(){
     paused = true;
     togglePopup();
     popup.children[0].innerText = 'Game Over!'
+    popup.children[2].addEventListener('click', resetGame)
     popup.children[3].style.display = 'block'
   }
 }
@@ -75,19 +76,30 @@ function createBirds(level, birdlevel){
 }
 
 function togglePopup(){
+
   let popup = document.getElementById('popup')
   if (paused){
+    document.getElementById('tips').style.display = ''
     popup.children[1].addEventListener('click', unpause)
     popup.children[3].addEventListener('click', getScores)
+    popup.children[4].addEventListener('click', readTips)
     popup.children[0].style.display = 'block'
     popup.children[2].style.display = 'block'
     popup.style.display = 'block'
     noLoop();
   }else{
     popup.style.display = ''
-    for(let i=0; i<4; i++){ popup.children[i].style.display = ''}
+    for(let i=0; i<5; i++){ popup.children[i].style.display = ''}
   }
-  return popup
+  // return popup
+}
+
+function readTips(){
+  popup.style.display = ''
+  // for(let i=0; i<5; i++){ popup.children[i].style.display = ''}
+  let tips = document.getElementById('tips')
+  tips.style.display = 'block'
+  tips.children[8].addEventListener('click', togglePopup)
 }
 
 function pauseGame(){
