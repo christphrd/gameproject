@@ -8,12 +8,14 @@ function setup() {
   let canvas = createCanvas(700,475);
   canvas.parent('game-window')
   welcomeScreen();
-  imageMode(CENTER)
+
   noStroke();
+  bg = loadImage('img/bg.png')
 }
 
 function draw(){
-  background(175, 225, 255);
+  background(bg);
+  imageMode(CENTER)
   if(typeof dude !== "undefined" && typeof allBirds !== "undefined" && typeof allEggs !== "undefined" && typeof allPowerups !== "undefined") {
     dude.show();
     dude.update();

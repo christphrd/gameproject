@@ -2,30 +2,31 @@ let colorCodes = [0, 1, 2, 3, 4, 5, 6]
 let colorWeights = [18, 18, 18, 18, 18, 5, 5]
 
 class Powerup {
-  constructor(x, y, size=20){
+  constructor(x, y, size=25){
     this.x = x
     this.y = y
     this.size = size
     this.powerupSpeed = random(1,3)
     this.color = floor(random(7))
-    // this.color = this.randomColor(colorCodes, colorWeights)
+    this.images = [loadGif('img/stopwatch.gif'), loadGif('img/hourglass.gif'), loadGif('img/star.gif'),
+    loadGif('img/mini-dude.gif'),loadGif('img/fat-dude.gif'), loadGif('img/heart.gif'), loadGif('img/mystery.gif')]
   }
 
   show(){
     if(this.color === 0){
-      fill('white')
+      image(this.images[0], this.x, this.y, this.size, this.size);
     }else if(this.color === 1){
-      fill('black')
+      image(this.images[1], this.x, this.y, this.size, this.size);
     }else if(this.color === 2){
-      fill('brown')
+      image(this.images[2], this.x, this.y, this.size+10, this.size+10);
     }else if(this.color === 3){
-      fill('purple')
+      image(this.images[3], this.x, this.y, this.size, this.size);
     }else if(this.color === 4){
-      fill('orange')
+      image(this.images[4], this.x, this.y, this.size+20, this.size+20);
     }else if(this.color === 5){
-      fill('pink')
+      image(this.images[5], this.x, this.y, this.size, this.size);
     }else if(this.color === 6){
-      fill('grey')
+      image(this.images[6], this.x, this.y, this.size, this.size);
     }
     ellipse(this.x, this.y, this.size, this.size);
   }
