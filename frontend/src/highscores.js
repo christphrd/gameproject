@@ -27,8 +27,9 @@ function displayScores(data) {
   highScoreTable.innerHTML = "<tr><th>Rank</th><th>Score</th><th>Initials</th></tr>"
 
   //optimistic rendering
-  data.scores.push(newScore)
-  pushedData = data.scores
+  copiedScoreFromDb = data.scores.slice()
+  copiedScoreFromDb.push(newScore)
+  pushedData = copiedScoreFromDb
   // debugger;
   //1. sorting arr of obj
   function compare(a, b) {

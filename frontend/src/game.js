@@ -34,7 +34,6 @@ function togglePopup(){
   let popup = document.getElementById('popup')
   if (paused){
     popup.children[1].addEventListener('click', unpause)
-    popup.children[2].addEventListener('click', resetGame)
     popup.children[3].addEventListener('click', getScores)
     popup.children[0].style.display = 'block'
     popup.children[2].style.display = 'block'
@@ -52,6 +51,7 @@ function pauseGame(){
     paused = true;
     togglePopup();
     popup.children[0].innerText = 'Paused'
+    popup.children[2].addEventListener('click', resetGame)
     popup.children[1].style.display = 'block'
     popup.children[4].style.display = 'block'
   }
