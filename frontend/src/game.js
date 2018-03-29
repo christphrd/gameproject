@@ -1,6 +1,6 @@
 let paused = false;
 
-function resetGame(){
+function resetGame(initials){
   allBirds = [];
   allEggs = [];
   allPowerups = [];
@@ -66,11 +66,15 @@ function unpause(){
 function welcomeScreen(){
   document.getElementById('welcome').style.display = 'block'
   document.getElementById('game-window').style.display = 'none'
-  document.getElementById('new-game').addEventListener('click', loadGame)
+  document.getElementById('username-form').addEventListener('submit',function(event){
+    event.preventDefault()
+    userInitials = event.target.children[0].value
+    loadGame(userInitials)
+  })
 }
 
-function loadGame(){
+function loadGame(initials){
   document.getElementById('welcome').style.display = 'none'
   document.getElementById('game-window').style.display = 'block'
-  resetGame()
+  resetGame(initials)
 }
