@@ -46,14 +46,20 @@ class Dude {
     }
 
     if(this.sizeState === 1){
-      this.size = 50
-      this.y = height-26
+      this.size = 60
+      this.y = height-36
+      this.imgWidth = this.size*1.5
+      this.imgHeight = this.size*1.2
     }else if(this.sizeState === 2){
       this.size = 20
-      this.y = height-11
+      this.y = height-12
+      this.imgWidth = this.size*1.5
+      this.imgHeight = this.size*1.2
     }else if(this.sizeState === 3){
-      this.size = 100
-      this.y = height-49
+      this.size = 120
+      this.y = height-72
+      this.imgWidth = this.size*1.5
+      this.imgHeight = this.size*1.2
     }
 
   }

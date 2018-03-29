@@ -1,6 +1,6 @@
 let paused = false;
 let currentLevel = 1;
-let eggDropChance = 80;
+let eggDropChance = 100;
 let powerupDropChance = 1000;
 let birdLevel2 = false;
 let birdLevel3 = false;

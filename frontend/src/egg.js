@@ -22,7 +22,6 @@ class Egg {
     }else if(this.color === 3){
       image(this.images[3], this.x, this.y, this.size, this.size);
     }
-
   }
 
   update(){
