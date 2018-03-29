@@ -1,6 +1,6 @@
 let paused = false;
 
-function resetGame(initials){
+function resetGame(){
   allBirds = [];
   allEggs = [];
   allPowerups = [];

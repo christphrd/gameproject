@@ -20,7 +20,7 @@ function displayScores(data) {
   })
 
   document.getElementById('highscores').style.display = 'block'
-  document.getElementById('highscores').children[2].addEventListener('click', resetGame)
+  document.getElementById('highscores').children[2].addEventListener('click', hideScores)
   document.getElementById('game-window').style.display = 'none'
 
   let highScoreTable = document.getElementById('high-score-table')
@@ -63,4 +63,10 @@ function displayScores(data) {
     row.append(username)
     highScoreTable.append(row)
   }
+}
+
+function hideScores(){
+  document.getElementById('game-window').style.display = 'block'
+  document.getElementById("highscores").style.display = 'none'
+  resetGame();
 }
