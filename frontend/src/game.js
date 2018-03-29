@@ -17,7 +17,14 @@ function resetGame(){
   sizeStateTimeout = null;
   rainbowTimeout = null;
   dude = new Dude();
+  dude.image[0] = loadGif("img/dude.gif")
+  dude.image[1] = loadGif("img/red-dude.gif")
+  dude.image[2] = loadGif("img/green-dude.gif")
+  dude.image[3] = loadGif("img/blue-dude.gif")
+  dude.image[4] = loadGif("img/rainbow-dude.gif")
+
   dude.resetDude();
+  console.log(dude)
   for(i = 0; i < 2; i++){
     let bird = new Bird()
     allBirds.push(bird)
@@ -80,6 +87,7 @@ function togglePopup(){
     popup.children[1].addEventListener('click', unpause)
     popup.children[3].addEventListener('click', getScores)
     popup.children[0].style.display = 'block'
+    popup.children[2].addEventListener('click', resetGame)
     popup.children[2].style.display = 'block'
     popup.style.display = 'block'
     noLoop();
@@ -95,7 +103,7 @@ function pauseGame(){
     paused = true;
     togglePopup();
     popup.children[0].innerText = 'Paused'
-    popup.children[2].addEventListener('click', resetGame)
+
     popup.children[1].style.display = 'block'
     popup.children[4].style.display = 'block'
   }

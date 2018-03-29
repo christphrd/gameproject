@@ -1,11 +1,13 @@
 class Dude {
-  constructor(x=350, y=height-26, score = 0, color = 0, speed = 4, hp = 1, size = 50, rainbow = false){
+  constructor(x=350, y=height-37, score = 0, color = 0, speed = 4, hp = 1, size = 60, rainbow = false){
     this.x = x
     this.y = y
     this.size = size
+    this.imgWidth = size*1.44
+    this.imgHeight = size*1.2
     this.color = color
     this.speed = speed
-
+    this.image = image
     this.score = score
     this.hp = hp
     this.rainbow = rainbow
@@ -13,18 +15,21 @@ class Dude {
 
   show(){
     if(this.color === 0){
-      fill(255,255,100)
+      image(this.image[0], this.x, this.y, this.imgWidth, this.imgHeight)
     }else if(this.color === 1){
-      fill(255,0,0)
+      image(this.image[1], this.x, this.y, this.imgWidth, this.imgHeight)
     }else if(this.color === 2){
-      fill(0,255,0)
+      image(this.image[2], this.x, this.y, this.imgWidth, this.imgHeight)
     }else if(this.color === 3){
-      fill(0,0,255)
+      image(this.image[3], this.x, this.y, this.imgWidth, this.imgHeight)
     }
+    noFill();
     ellipse(this.x, this.y, this.size, this.size);
     if(this.rainbow === true){
+      image(this.image[4], this.x, this.y, this.imgWidth, this.imgHeight)
       setInterval(function(){ this.color = floor(random(0,4)) }, 300);
     }
+
   }
 
   update(){
