@@ -68,5 +68,5 @@ function displayScores(data) {
 function hideScores(){
   document.getElementById('game-window').style.display = 'block'
   document.getElementById("highscores").style.display = 'none'
-  resetGame();
+  welcomeScreen();
 }
