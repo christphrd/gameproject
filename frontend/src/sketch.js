@@ -10,7 +10,6 @@ function setup() {
   let canvas = createCanvas(700,475);
   canvas.parent('game-window')
   welcomeScreen();
-
   noStroke();
   bg = loadImage('img/bg.png')
 }
