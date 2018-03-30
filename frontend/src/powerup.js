@@ -31,7 +31,13 @@ class Powerup {
     ellipse(this.x, this.y, this.size, this.size);
   }
 
-  update(){ this.y+=this.powerupSpeed }
+  update(){
+    if(timeSlowState === false){
+      this.y+=this.powerupSpeed
+    }else if(timeSlowState === true){
+      this.y+=(this.powerupSpeed*0.2)
+    }
+  }
 
   checkCollision(){
     let hit = collideCircleCircle(dude.x, dude.y, dude.size, this.x, this.y, this.size)
