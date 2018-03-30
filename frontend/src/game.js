@@ -56,7 +56,7 @@ function increaseLevel(){
     }
   }else if(dude.score >= 10){
     currentLevel = 3
-    eggDropChance = 2-50;
+    eggDropChance = 50;
     powerupDropChance = 500;
     if(birdLevel3 === false){
       birdLevel3 = true
