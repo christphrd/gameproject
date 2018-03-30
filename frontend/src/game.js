@@ -30,6 +30,7 @@ function resetGame(){
     let bird = new Bird()
     allBirds.push(bird)
   }
+  document.getElementById('asdf').style.display = 'block'
   eggDropChance = 80;
   powerupDropChance = 1000;
   currentLevel = 1;

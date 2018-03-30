@@ -5,6 +5,7 @@ function getScores() {
 }
 
 function displayScores(data) {
+
   //post to db with fetch
   newScore = {
     points: dude.score,
@@ -20,6 +21,7 @@ function displayScores(data) {
   })
 
   document.getElementById('highscores').style.display = 'block'
+  document.getElementById('asdf').style.display = 'none'
   document.getElementById('highscores').children[2].addEventListener('click', hideScores)
   document.getElementById('game-window').style.display = 'none'
 
@@ -68,5 +70,6 @@ function displayScores(data) {
 function hideScores(){
   document.getElementById('game-window').style.display = 'block'
   document.getElementById("highscores").style.display = 'none'
+  document.getElementById('asdf').style.display = 'none'
   welcomeScreen();
 }
