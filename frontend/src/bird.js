@@ -1,11 +1,9 @@
 
 class Bird {
-  constructor(speed = random(-8,8), scalar = random(10,70), angle = random(2,6)){
+  constructor(speed = random(-5,5), scalar = random(10,70), angle = random(2,5)){
     this.x = random(width)
     this.y = random(40, 100)
     this.birdSpeed = speed
-    this.birdOrigSpeed = speed
-    this.birdSlowSpeed = speed*0.2
     this.scalar = scalar
     this.angle = angle
     this.origAngle = angle

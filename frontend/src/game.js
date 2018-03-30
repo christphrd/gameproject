@@ -1,7 +1,7 @@
 let paused = false;
 let currentLevel = 1;
-let eggDropChance = 100;
-let powerupDropChance = 1000;
+let eggDropChance = 20;
+let powerupDropChance = 10000;
 let birdLevel2 = false;
 let birdLevel3 = false;
 let birdLevel4 = false;
@@ -23,7 +23,6 @@ function resetGame(){
   dude.image[3] = loadGif("img/blue-dude.gif")
   dude.image[4] = loadGif("img/rainbow-dude.gif")
   dude.resetDude();
-  console.log(dude)
   for(i = 0; i < 2; i++){
     let bird = new Bird()
     allBirds.push(bird)
@@ -49,24 +48,24 @@ function checkGameStatus(){
 function increaseLevel(){
   if(dude.score >= 15){
     currentLevel = 4
-    eggDropChance = 5;
-    powerupDropChance = 20;
+    eggDropChance = 20;
+    powerupDropChance = 100;
     if(birdLevel4 === false){
       birdLevel4 = true
       createBirds(currentLevel)
     }
   }else if(dude.score >= 10){
     currentLevel = 3
-    eggDropChance = 20;
-    powerupDropChance = 100;
+    eggDropChance = 50;
+    powerupDropChance = 500;
     if(birdLevel3 === false){
       birdLevel3 = true
       createBirds(currentLevel)
     }
   }else if(dude.score >= 5){
     currentLevel = 2
-    eggDropChance = 50;
-    powerupDropChance = 500;
+    eggDropChance = 80;
+    powerupDropChance = 750;
     if(birdLevel2 === false){
       birdLevel2 = true
       createBirds(currentLevel)
@@ -74,8 +73,8 @@ function increaseLevel(){
   }
 }
 
-function createBirds(level, birdlevel){
-  for(i = 0; i < level; i++){
+function createBirds(level){
+  for(i = 0; i < 2; i++){
     let bird = new Bird()
     allBirds.push(bird)
   }
@@ -103,7 +102,6 @@ function togglePopup(){
 
 function readTips(){
   popup.style.display = ''
-  // for(let i=0; i<5; i++){ popup.children[i].style.display = ''}
   let tips = document.getElementById('tips')
   tips.style.display = 'block'
   tips.children[8].addEventListener('click', togglePopup)
