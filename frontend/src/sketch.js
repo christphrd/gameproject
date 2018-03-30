@@ -4,6 +4,8 @@ window.addEventListener("keydown", function(e) {
   }
 }, false);
 
+window.addEventListener('keydown', konamiFunction)
+
 function setup() {
   let canvas = createCanvas(700,475);
   canvas.parent('game-window')

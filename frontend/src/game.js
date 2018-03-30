@@ -5,6 +5,9 @@ let powerupDropChance = 10000;
 let birdLevel2 = false;
 let birdLevel3 = false;
 let birdLevel4 = false;
+const alphabet = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
+let konamiCount = 0;
+let secretState = false;
 
 
 function resetGame(){
@@ -138,4 +141,17 @@ function loadGame(){
   document.getElementById('welcome').style.display = 'none'
   document.getElementById('game-window').style.display = 'block'
   resetGame();
+}
+
+function konamiFunction(e) {
+  const key = parseInt(e.detail || e.which);
+  if (key === alphabet[konamiCount]) {
+    konamiCount++;
+    if (konamiCount === alphabet.length) {
+      secretState = true;
+      konamiCount = 0;
+    }
+  } else {
+    konamiCount = 0;
+  }
 }

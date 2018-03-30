@@ -7,18 +7,24 @@ class Egg {
     this.eggSpeed = speed
     this.color = floor(random(4))
     this.size = floor(random(25,41))
-    this.images = [loadGif('img/yellow-egg.gif'), loadGif('img/red-egg.gif'), loadGif('img/green-egg.gif'), loadGif('img/blue-egg.gif')]
+    this.images = [loadGif('img/yellow-egg.gif'), loadGif('img/red-egg.gif'), loadGif('img/green-egg.gif'), loadGif('img/blue-egg.gif'), loadGif('img/secret.gif')]
   }
 
   show(){
-    if(this.color === 0){
-      image(this.images[0], this.x, this.y, this.size, this.size);
-    }else if(this.color === 1){
-      image(this.images[1], this.x, this.y, this.size, this.size);
-    }else if(this.color === 2){
-      image(this.images[2], this.x, this.y, this.size, this.size);
-    }else if(this.color === 3){
-      image(this.images[3], this.x, this.y, this.size, this.size);
+    if(secretState === false){
+      if(this.color === 0){
+        image(this.images[0], this.x, this.y, this.size, this.size);
+      }else if(this.color === 1){
+        image(this.images[1], this.x, this.y, this.size, this.size);
+      }else if(this.color === 2){
+        image(this.images[2], this.x, this.y, this.size, this.size);
+      }else if(this.color === 3){
+        image(this.images[3], this.x, this.y, this.size, this.size);
+      }
+    }else if(secretState === true){
+      if(this.color){
+        image(this.images[4], this.x, this.y, this.size, this.size)
+      }
     }
   }
 
