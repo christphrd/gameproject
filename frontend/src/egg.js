@@ -1,7 +1,7 @@
 
 
 class Egg {
-  constructor(x, y, speed = random(1,6)){
+  constructor(x, y, speed = random(1,5)){
     this.x = x
     this.y = y
     this.eggSpeed = speed
