@@ -102,7 +102,6 @@ function togglePopup(){
 
 function readTips(){
   popup.style.display = ''
-  // for(let i=0; i<5; i++){ popup.children[i].style.display = ''}
   let tips = document.getElementById('tips')
   tips.style.display = 'block'
   tips.children[8].addEventListener('click', togglePopup)

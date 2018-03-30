@@ -4,8 +4,6 @@ class Bird {
     this.x = random(width)
     this.y = random(40, 100)
     this.birdSpeed = speed
-    // this.birdOrigSpeed = speed
-    // this.birdSlowSpeed = speed*0.2
     this.scalar = scalar
     this.angle = angle
     this.origAngle = angle

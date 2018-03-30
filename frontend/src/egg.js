@@ -5,8 +5,6 @@ class Egg {
     this.x = x
     this.y = y
     this.eggSpeed = speed
-    // this.eggOrigSpeed = speed
-    // this.eggSlowSpeed = speed*0.2
     this.color = floor(random(4))
     this.size = floor(random(25,41))
     this.images = [loadGif('img/yellow-egg.gif'), loadGif('img/red-egg.gif'), loadGif('img/green-egg.gif'), loadGif('img/blue-egg.gif')]
