@@ -130,7 +130,11 @@ body{
   height: 480px;
   padding-top: 30px;
   border-radius: 5px;
-  background-color: #b1e1fe;
+  background-image: url(../img/main-bg.gif);
   text-align: center;
   color: white;
+}
+
+#username-form{
+  padding-top: 200px;
 }
