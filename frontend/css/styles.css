@@ -29,23 +29,6 @@ body{
   background-color: #d1ec62;
 }
 
-
-#navtitle{
-  margin: auto;
-  height: 30px;
-  width: 660px;
-  display: flex;
-  font-size: 12px;
-  line-height: 10px;
-  color: #7e8849;
-  padding: 0 20px;
-  justify-content: space-between;
-  border-bottom: 5px solid white;
-  box-shadow: 0 0 5px #74823b inset;
-  background-color: #d1ec62;
-}
-
-
 #game-window{
   display: none;
   position: relative;
