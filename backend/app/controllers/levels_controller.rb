@@ -4,7 +4,7 @@ class LevelsController < ApplicationController
     render json: @level, include: ['scores']
   end
 
-  def show
+  def test
     @level = Level.find(params[:id])
     render json: @level, include: ['scores']
   end
